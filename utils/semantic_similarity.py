@@ -114,7 +114,9 @@ def compute_semantic_similarity(
         if not model_name: raise NameError(f"model {model} not found")
 
         print(f'Loading {model_name}...')
-        model = SentenceTransformer(model_name, device=device)
+        # use local path load the model
+        local_model_path = '/home/hdl/model/all-mpnet-base-v2'        
+        model = SentenceTransformer(local_model_path, device=device)
 
         print(f'Encoding...')
         pred_feats = model.encode(pred_names, convert_to_tensor=True).to(device)

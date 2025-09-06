@@ -1,0 +1,36 @@
+1.数据集获取报错
+解决：改为外部下载
+
+2.utils/semantic_similarity.py下代码model = SentenceTransformer(model_name, device=device)加载all-mpnet-base-v2模型报错
+报错原因为huggingface无法连接，解决方式参考：https://blog.csdn.net/a61022706/article/details/134887159
+设置镜像：export HF_ENDPOINT=https://hf-mirror.com
+下载all-mpnet-base-v2模型：
+huggingface-cli download sentence-transformers/all-mpnet-base-v2 --local-dir ./all-mpnet-base-v2 --resume-download
+下载到/home/hdl/model/all-mpnet-base-v2
+添加代码local_model_path = '/home/hdl/model/all-mpnet-base-v2'
+model = SentenceTransformer(model_name, device=device)修改为model = SentenceTransformer(local_model_path, device=device)
+
+3.日志实时输出到log目录下
+./run.sh scripts_eval/poke_pipe.sh
+
+4.模型blip2-flan-t5-xxl下载出现类似问题
+export HF_ENDPOINT=https://hf-mirror.com
+huggingface-cli download Salesforce/blip2-flan-t5-xxl --local-dir ./blip2-flan-t5-xxl --resume-download
+修改文件agents/vqa_bot.py
+添加local_model_path = '/home/hdl/model/blip2-flan-t5-xxl'
+
+5.tokenizer.json报错
+禁用fast tokenizer
+修改文件pvqa_bot.py
+
+6.cfg 字典中 没有 'path_identify_answers' 这个 key（discovering.py的superclass = load_json(cfg['path_identify_answers'] + expt_id_suffix)['superclass']报错）
+修改文件configs/expts/pet37_all.yml等
+
+7.openai api无法获取
+使用中转api：poloai.top
+
+8.组织数据集car-196
+修改文件data/car196.py和data/bird200.py
+修改文件scripts_eval/c_pipe.sh
+
+9.脚本datasets/link_local_sets.sh存在错误，需要修改

@@ -50,16 +50,19 @@ class VQABot:
         self.model_tag = model_tag
         self.model_name = "BLIP-2"
         self.max_answer_tokens = max_answer_tokens
-
-        self.blip2_processor = Blip2Processor.from_pretrained(BLIP2ZOO[self.model_tag])
+        
+        # use local path load the model
+        local_model_path = '/home/hdl/model/blip2-flan-t5-xxl'
+        # add "use_fast=False",ban fast tokenizer
+        self.blip2_processor = Blip2Processor.from_pretrained(local_model_path)
         if device == 'cpu':
             self.device = 'cpu'
-            self.blip2 = Blip2ForConditionalGeneration.from_pretrained(BLIP2ZOO[self.model_tag])
+            self.blip2 = Blip2ForConditionalGeneration.from_pretrained(local_model_path)
         else:
             self.device = 'cuda:{}'.format(device_id)
             self.bit8 = bit8
             dtype = {'load_in_8bit': True} if self.bit8 else {'torch_dtype': torch.float16}
-            self.blip2 = Blip2ForConditionalGeneration.from_pretrained(BLIP2ZOO[self.model_tag],
+            self.blip2 = Blip2ForConditionalGeneration.from_pretrained(local_model_path,
                                                                        device_map={'': int(device_id)},
                                                                        **dtype)
 
