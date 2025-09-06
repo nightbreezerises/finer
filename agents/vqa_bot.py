@@ -54,7 +54,7 @@ class VQABot:
         # use local path load the model
         local_model_path = '/home/hdl/model/blip2-flan-t5-xxl'
         # add "use_fast=False",ban fast tokenizer
-        self.blip2_processor = Blip2Processor.from_pretrained(local_model_path)
+        self.blip2_processor = Blip2Processor.from_pretrained(local_model_path, use_fast=False)
         if device == 'cpu':
             self.device = 'cpu'
             self.blip2 = Blip2ForConditionalGeneration.from_pretrained(local_model_path)
