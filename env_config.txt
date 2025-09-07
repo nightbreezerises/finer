@@ -33,3 +33,5 @@ self.client = OpenAI(
 )
 
 7.脚本datasets/link_local_sets.sh存在错误，需要修改
+
+8.脚本scripts_IdentifyAndHowto的.py.py路径错误
