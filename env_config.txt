@@ -21,20 +21,15 @@ huggingface-cli download Salesforce/blip2-flan-t5-xxl --local-dir ./blip2-flan-t
 
 5.tokenizer.json报错
 禁用fast tokenizer
-修改文件pvqa_bot.py
+修改文件vqa_bot.py
 
-6.cfg 字典中 没有 'path_identify_answers' 这个 key（discovering.py的superclass = load_json(cfg['path_identify_answers'] + expt_id_suffix)['superclass']报错）
-修改文件configs/expts/pet37_all.yml等
-
-7.openai api无法获取
+6.openai api无法获取
 使用中转api：poloai.top
+修改文件agents/llm_bot.py
+注意修改下面的部分
+self.client = OpenAI(
+    api_key=os.environ["OPENAI_API_KEY"],
+    base_url=_API_BASE[model], #注意添加这行
+)
 
-8.组织数据集car-196
-修改文件data/car196.py和data/bird200.py
-修改文件scripts_eval/c_pipe.sh
-
-9.脚本datasets/link_local_sets.sh存在错误，需要修改
-
-10.路径问题：'datasets/CUB_200_2011/CUB_200_2011/images'
-修改data/bird200.py
-
+7.脚本datasets/link_local_sets.sh存在错误，需要修改

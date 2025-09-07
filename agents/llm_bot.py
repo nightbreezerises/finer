@@ -88,6 +88,7 @@ class LLMBot:
 
         self.client = OpenAI(
             api_key=os.environ["OPENAI_API_KEY"],
+            base_url=_API_BASE[model], # 配置中转代理
         )
         self.model_name = model
         self.max_chat_token = max_chat_token
