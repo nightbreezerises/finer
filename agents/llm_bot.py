@@ -19,11 +19,11 @@ _API_BASE = {
 """
 # 使用中转代理
 _API_BASE = {
-    "gpt-3.5-turbo": "https://poloai.top/v1",        # 上下文窗口: 4k tokens
-    "gpt-3.5-turbo-0125": "https://poloai.top/v1",    # 上下文窗口: 16k tokens
-    "gpt-4": "https://poloai.top/v1",                 # 上下文窗口: 8k tokens
-    "gpt-4-turbo-preview": "https://poloai.top/v1",   # 上下文窗口: 128k tokens
-    "gpt-4-0125-preview": "https://poloai.top/v1",    # 上下文窗口: 128k tokens
+    "gpt-3.5-turbo": "https://api.openai-proxy.org/v1",        # 上下文窗口: 4k tokens
+    "gpt-3.5-turbo-0125": "https://api.openai-proxy.org/v1",    # 上下文窗口: 16k tokens
+    "gpt-4": "https://api.openai-proxy.org/v1",                 # 上下文窗口: 8k tokens
+    "gpt-4-turbo-preview": "https://api.openai-proxy.org/v1",   # 上下文窗口: 128k tokens
+    "gpt-4-0125-preview": "https://api.openai-proxy.org/v1",    # 上下文窗口: 128k tokens
 }
 
 SYSTEM_INSTRUCTION = "You are a helpful assistant."

@@ -24,7 +24,7 @@ huggingface-cli download Salesforce/blip2-flan-t5-xxl --local-dir ./blip2-flan-t
 修改文件vqa_bot.py
 
 6.openai api无法获取
-使用中转api：poloai.top
+使用中转api：api.openai-proxy.org
 修改文件agents/llm_bot.py
 注意修改下面的部分
 self.client = OpenAI(
