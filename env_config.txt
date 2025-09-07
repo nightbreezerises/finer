@@ -35,3 +35,8 @@ self.client = OpenAI(
 7.脚本datasets/link_local_sets.sh存在错误，需要修改
 
 8.脚本scripts_IdentifyAndHowto的.py.py路径错误
+
+9.代码utils/configuration.py在第80行mkdir_if_missing(cfg_expt['expt_dir_describe'])后面加上以下代码
+cfg_expt['path_identify_answers'] = os.path.join(cfg_expt['expt_dir_describe'],
+                                                 f"{cfg_expt['dataset_name']}_identify_answers")
+

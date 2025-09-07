@@ -1,0 +1,180 @@
+Namespace(mode='identify', config_file_env='./configs/env_machine.yml', config_file_expt='./configs/expts/pokemon_all.yml', num_per_category='3')
+{'setup': 'ours', 'experiment': 5.0, 'dataset_name': 'pokemon', 'num_classes': 10, 'num_base': 5, 'num_novel': 5, 'seed': 1, 'batch_size': 256, 'clustering_method': 'multi_clip_voting', 'model_size': 'ViT-B/16', 'model_size_vqa': 'FlanT5-XXL', 'model_type_llm': 'gpt-3.5-turbo', 'image_size': 224, 'verbose': False, 'host': 'chaos', 'num_workers': 16, 'device': 'cuda', 'device_count': '1', 'device_id': '0', 'data_dir': './datasets/pokemon', 'expt_dir': './experiments/pokemon', 'expt_dir_describe': './experiments/pokemon/describe', 'path_identify_answers': './experiments/pokemon/describe/pokemon_identify_answers', 'path_vqa_questions': './experiments/pokemon/describe/pokemon_vqa_questions', 'path_vqa_answers': './experiments/pokemon/describe/pokemon_attributes_pairs', 'path_llm_prompts': './experiments/pokemon/describe/pokemon_llm_prompts', 'expt_dir_guess': './experiments/pokemon/guess', 'path_llm_replies_raw': './experiments/pokemon/guess/pokemon_llm_replies_raw', 'path_llm_replies_jsoned': './experiments/pokemon/guess/pokemon_llm_replies_jsoned', 'path_llm_gussed_names': './experiments/pokemon/guess/pokemon_llm_gussed_names', 'expt_dir_grouping': './experiments/pokemon/grouping'}
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:03<00:13,  3.27s/it]Loading checkpoint shards:  40%|████      | 2/5 [00:05<00:08,  2.87s/it]Loading checkpoint shards:  60%|██████    | 3/5 [00:08<00:05,  2.77s/it]Loading checkpoint shards:  80%|████████  | 4/5 [00:11<00:02,  2.74s/it]Loading checkpoint shards: 100%|██████████| 5/5 [00:13<00:00,  2.62s/it]Loading checkpoint shards: 100%|██████████| 5/5 [00:13<00:00,  2.72s/it]
+0it [00:00, ?it/s]1it [00:00,  1.63it/s]2it [00:00,  3.06it/s]3it [00:00,  4.20it/s]4it [00:01,  4.86it/s]5it [00:01,  5.83it/s]6it [00:01,  6.63it/s]7it [00:01,  6.94it/s]8it [00:01,  6.83it/s]9it [00:01,  7.27it/s]10it [00:01,  7.25it/s]11it [00:01,  6.94it/s]12it [00:02,  6.90it/s]13it [00:02,  7.16it/s]14it [00:02,  7.46it/s]15it [00:02,  7.53it/s]16it [00:02,  6.58it/s]17it [00:02,  6.85it/s]18it [00:02,  7.32it/s]19it [00:03,  7.30it/s]20it [00:03,  7.33it/s]21it [00:03,  7.69it/s]22it [00:03,  7.81it/s]23it [00:03,  7.76it/s]24it [00:03,  8.20it/s]25it [00:03,  8.54it/s]26it [00:03,  8.13it/s]27it [00:04,  8.45it/s]28it [00:04,  8.22it/s]29it [00:04,  8.07it/s]30it [00:04,  8.36it/s]30it [00:04,  6.85it/s]
+['pokemon']
+Succ. dumped identified super-class values to ./experiments/pokemon/describe/pokemon_identify_answers_3
+Namespace(mode='howto', config_file_env='./configs/env_machine.yml', config_file_expt='./configs/expts/pokemon_all.yml', num_per_category='3')
+{'setup': 'ours', 'experiment': 5.0, 'dataset_name': 'pokemon', 'num_classes': 10, 'num_base': 5, 'num_novel': 5, 'seed': 1, 'batch_size': 256, 'clustering_method': 'multi_clip_voting', 'model_size': 'ViT-B/16', 'model_size_vqa': 'FlanT5-XXL', 'model_type_llm': 'gpt-3.5-turbo', 'image_size': 224, 'verbose': False, 'host': 'chaos', 'num_workers': 16, 'device': 'cuda', 'device_count': '1', 'device_id': '0', 'data_dir': './datasets/pokemon', 'expt_dir': './experiments/pokemon', 'expt_dir_describe': './experiments/pokemon/describe', 'path_identify_answers': './experiments/pokemon/describe/pokemon_identify_answers', 'path_vqa_questions': './experiments/pokemon/describe/pokemon_vqa_questions', 'path_vqa_answers': './experiments/pokemon/describe/pokemon_attributes_pairs', 'path_llm_prompts': './experiments/pokemon/describe/pokemon_llm_prompts', 'expt_dir_guess': './experiments/pokemon/guess', 'path_llm_replies_raw': './experiments/pokemon/guess/pokemon_llm_replies_raw', 'path_llm_replies_jsoned': './experiments/pokemon/guess/pokemon_llm_replies_jsoned', 'path_llm_gussed_names': './experiments/pokemon/guess/pokemon_llm_gussed_names', 'expt_dir_grouping': './experiments/pokemon/grouping'}
+
+Your task is to tell me what are the useful attributes for distinguishing pokemon names in a photo of a pokemon.
+
+Specifically, you can complete the task by following the instructions below:
+1 - I give you an example delimited by <> about what are the useful attributes for distinguishing bird species in 
+a photo of a bird. You should understand and learn this example carefully.
+2 - List the useful attributes for distinguishing pokemon names in a photo of a pokemon.
+3 - Output a Python list object that contains the listed useful attributes.
+
+===
+<bird species>
+The useful attributes for distinguishing bird species in a photo of a bird:
+['bill shape', 'wing color', 'upperparts color', 'underparts color', 'breast pattern',
+'back color', 'tail shape', 'upper tail color', 'head pattern', 'breast color',
+'throat color', 'eye color', 'bill length', 'forehead color', 'under tail color',
+'nape color', 'belly color', 'wing shape', 'size', 'shape',
+'back pattern', 'tail pattern', 'belly pattern', 'primary color', 'leg color',
+'bill color', 'crown color', 'wing pattern', 'habitat']
+===
+
+===
+<pokemon names>
+The useful attributes for distinguishing pokemon names in a photo of a pokemon:
+===
+
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /home/hdl/miniconda3/envs/finer/lib/python3.9/site-packages/tenacity/__init_ │
+│ _.py:382 in __call__                                                         │
+│                                                                              │
+│   379 │   │   │   do = self.iter(retry_state=retry_state)                    │
+│   380 │   │   │   if isinstance(do, DoAttempt):                              │
+│   381 │   │   │   │   try:                                                   │
+│ ❱ 382 │   │   │   │   │   result = fn(*args, **kwargs)                       │
+│   383 │   │   │   │   except BaseException:  # noqa: B902                    │
+│   384 │   │   │   │   │   retry_state.set_exception(sys.exc_info())  # type: │
+│   385 │   │   │   │   else:                                                  │
+│                                                                              │
+│ /home/hdl/project/FineR/FineR_1/agents/llm_bot.py:57 in call_gpts            │
+│                                                                              │
+│    54 │   │   │   max_tokens=max_tokens                                      │
+│    55 │   │   )                                                              │
+│    56 │   else:                                                              │
+│ ❱  57 │   │   response = client.chat.completions.create(                     │
+│    58 │   │   │   model=model,                                               │
+│    59 │   │   │   messages=chatgpt_messages,                                 │
+│    60 │   │   │   temperature=temperature                                    │
+│                                                                              │
+│ /home/hdl/miniconda3/envs/finer/lib/python3.9/site-packages/openai/_utils/_u │
+│ tils.py:287 in wrapper                                                       │
+│                                                                              │
+│   284 │   │   │   │   │   else:                                              │
+│   285 │   │   │   │   │   │   msg = f"Missing required argument: {quote(miss │
+│   286 │   │   │   │   raise TypeError(msg)                                   │
+│ ❱ 287 │   │   │   return func(*args, **kwargs)                               │
+│   288 │   │                                                                  │
+│   289 │   │   return wrapper  # type: ignore                                 │
+│   290                                                                        │
+│                                                                              │
+│ /home/hdl/miniconda3/envs/finer/lib/python3.9/site-packages/openai/resources │
+│ /chat/completions/completions.py:1147 in create                              │
+│                                                                              │
+│   1144 │   │   timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN, │
+│   1145 │   ) -> ChatCompletion | Stream[ChatCompletionChunk]:                │
+│   1146 │   │   validate_response_format(response_format)                     │
+│ ❱ 1147 │   │   return self._post(                                            │
+│   1148 │   │   │   "/chat/completions",                                      │
+│   1149 │   │   │   body=maybe_transform(                                     │
+│   1150 │   │   │   │   {                                                     │
+│                                                                              │
+│ /home/hdl/miniconda3/envs/finer/lib/python3.9/site-packages/openai/_base_cli │
+│ ent.py:1259 in post                                                          │
+│                                                                              │
+│   1256 │   │   opts = FinalRequestOptions.construct(                         │
+│   1257 │   │   │   method="post", url=path, json_data=body, files=to_httpx_f │
+│   1258 │   │   )                                                             │
+│ ❱ 1259 │   │   return cast(ResponseT, self.request(cast_to, opts, stream=str │
+│   1260 │                                                                     │
+│   1261 │   def patch(                                                        │
+│   1262 │   │   self,                                                         │
+│                                                                              │
+│ /home/hdl/miniconda3/envs/finer/lib/python3.9/site-packages/openai/_base_cli │
+│ ent.py:1047 in request                                                       │
+│                                                                              │
+│   1044 │   │   │   │   │   err.response.read()                               │
+│   1045 │   │   │   │                                                         │
+│   1046 │   │   │   │   log.debug("Re-raising status error")                  │
+│ ❱ 1047 │   │   │   │   raise self._make_status_error_from_response(err.respo │
+│   1048 │   │   │                                                             │
+│   1049 │   │   │   break                                                     │
+│   1050                                                                       │
+╰──────────────────────────────────────────────────────────────────────────────╯
+AuthenticationError: Error code: 401 - {'error': {'message': '无效的sk 
+token，请检查token是否正确', 'type': 'error'}}
+
+The above exception was the direct cause of the following exception:
+
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /home/hdl/project/FineR/FineR_1/discovering.py:346 in <module>               │
+│                                                                              │
+│   343 │   │   pattern = r'\[([^\]]*)\]'                                      │
+│   344 │   │   for i, ppt in enumerate(prompt):                               │
+│   345 │   │   │   print(ppt)                                                 │
+│ ❱ 346 │   │   │   vqa_questions = how_to_distinguish(llm_bot, prompt=ppt)    │
+│   347 │   │   │   matches = re.findall(pattern, vqa_questions)               │
+│   348 │   │   │   result = matches[0].strip().replace('\n', '').replace('"', │
+│   349                                                                        │
+│                                                                              │
+│ /home/hdl/project/FineR/FineR_1/discovering.py:79 in how_to_distinguish      │
+│                                                                              │
+│    76                                                                        │
+│    77                                                                        │
+│    78 def how_to_distinguish(bot, prompt):                                   │
+│ ❱  79 │   reply = bot.infer(prompt, temperature=0.1)                         │
+│    80 │   used_tokens = bot.get_used_tokens()                                │
+│    81 │                                                                      │
+│    82 │   print(20*"=")                                                      │
+│                                                                              │
+│ /home/hdl/project/FineR/FineR_1/agents/llm_bot.py:119 in infer               │
+│                                                                              │
+│   116 │   │   return reply, total_prompt, n_tokens                           │
+│   117 │                                                                      │
+│   118 │   def infer(self, prompt, temperature=0.9):                          │
+│ ❱ 119 │   │   reply, _, n_tokens = self.__query(prompt, temperature, max_tok │
+│   120 │   │   self.total_tokens += n_tokens                                  │
+│   121 │   │   return reply.strip()                                           │
+│   122                                                                        │
+│                                                                              │
+│ /home/hdl/project/FineR/FineR_1/agents/llm_bot.py:109 in __query             │
+│                                                                              │
+│   106 │                                                                      │
+│   107 │   def __query(self, prompt, temperature, max_token):                 │
+│   108 │   │   total_prompt = prepare_chatgpt_message(prompt)                 │
+│ ❱ 109 │   │   reply, n_tokens = call_gpts(                                   │
+│   110 │   │   │   client=self.client,                                        │
+│   111 │   │   │   chatgpt_messages=total_prompt,                             │
+│   112 │   │   │   temperature=temperature,                                   │
+│                                                                              │
+│ /home/hdl/miniconda3/envs/finer/lib/python3.9/site-packages/tenacity/__init_ │
+│ _.py:289 in wrapped_f                                                        │
+│                                                                              │
+│   286 │   │                                                                  │
+│   287 │   │   @functools.wraps(f)                                            │
+│   288 │   │   def wrapped_f(*args: t.Any, **kw: t.Any) -> t.Any:             │
+│ ❱ 289 │   │   │   return self(f, *args, **kw)                                │
+│   290 │   │                                                                  │
+│   291 │   │   def retry_with(*args: t.Any, **kwargs: t.Any) -> WrappedFn:    │
+│   292 │   │   │   return self.copy(*args, **kwargs).wraps(f)                 │
+│                                                                              │
+│ /home/hdl/miniconda3/envs/finer/lib/python3.9/site-packages/tenacity/__init_ │
+│ _.py:379 in __call__                                                         │
+│                                                                              │
+│   376 │   │                                                                  │
+│   377 │   │   retry_state = RetryCallState(retry_object=self, fn=fn, args=ar │
+│   378 │   │   while True:                                                    │
+│ ❱ 379 │   │   │   do = self.iter(retry_state=retry_state)                    │
+│   380 │   │   │   if isinstance(do, DoAttempt):                              │
+│   381 │   │   │   │   try:                                                   │
+│   382 │   │   │   │   │   result = fn(*args, **kwargs)                       │
+│                                                                              │
+│ /home/hdl/miniconda3/envs/finer/lib/python3.9/site-packages/tenacity/__init_ │
+│ _.py:326 in iter                                                             │
+│                                                                              │
+│   323 │   │   │   retry_exc = self.retry_error_cls(fut)                      │
+│   324 │   │   │   if self.reraise:                                           │
+│   325 │   │   │   │   raise retry_exc.reraise()                              │
+│ ❱ 326 │   │   │   raise retry_exc from fut.exception()                       │
+│   327 │   │                                                                  │
+│   328 │   │   if self.wait:                                                  │
+│   329 │   │   │   sleep = self.wait(retry_state)                             │
+╰──────────────────────────────────────────────────────────────────────────────╯
+RetryError: RetryError[<Future at 0x7145eade7970 state=finished raised 
+AuthenticationError>]

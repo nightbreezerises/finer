@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import os
 import torch
 import torch.cuda
@@ -76,6 +78,9 @@ def setup_config(config_file_env: str, config_file_expt: str):
     # for Stage Discovery
     cfg_expt['expt_dir_describe'] = os.path.join(cfg_expt['expt_dir'], "describe")
     mkdir_if_missing(cfg_expt['expt_dir_describe'])
+    #添加下面这行代码，解决这个问题：discovering.py中确实使用了cfg['path_identify_answers']，但在configuration.py中没有定义这个路径
+    cfg_expt['path_identify_answers'] = os.path.join(cfg_expt['expt_dir_describe'],
+                                                     f"{cfg_expt['dataset_name']}_identify_answers")
     cfg_expt['path_vqa_questions'] = os.path.join(cfg_expt['expt_dir_describe'],
                                                   f"{cfg_expt['dataset_name']}_vqa_questions")
     cfg_expt['path_vqa_answers'] = os.path.join(cfg_expt['expt_dir_describe'],
