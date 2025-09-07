@@ -1,0 +1,84 @@
+Namespace(mode='identify', config_file_env='./configs/env_machine.yml', config_file_expt='./configs/expts/pet37_all.yml', num_per_category='3')
+{'setup': 'ours', 'experiment': 5.0, 'dataset_name': 'pet', 'num_classes': 37, 'num_base': 19, 'num_novel': 18, 'seed': 1, 'batch_size': 32, 'clustering_method': 'multi_clip_voting', 'model_size': 'ViT-B/16', 'model_size_vqa': 'FlanT5-XXL', 'model_type_llm': 'gpt-3.5-turbo', 'image_size': 224, 'verbose': False, 'host': 'chaos', 'num_workers': 16, 'device': 'cuda', 'device_count': '1', 'device_id': '0', 'data_dir': './datasets/pet_37', 'expt_dir': './experiments/pet37', 'expt_dir_describe': './experiments/pet37/describe', 'path_identify_answers': './experiments/pet37/describe/pet_identify_answers', 'path_vqa_questions': './experiments/pet37/describe/pet_vqa_questions', 'path_vqa_answers': './experiments/pet37/describe/pet_attributes_pairs', 'path_llm_prompts': './experiments/pet37/describe/pet_llm_prompts', 'expt_dir_guess': './experiments/pet37/guess', 'path_llm_replies_raw': './experiments/pet37/guess/pet_llm_replies_raw', 'path_llm_replies_jsoned': './experiments/pet37/guess/pet_llm_replies_jsoned', 'path_llm_gussed_names': './experiments/pet37/guess/pet_llm_gussed_names', 'expt_dir_grouping': './experiments/pet37/grouping'}
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:02<00:09,  2.28s/it]Loading checkpoint shards:  40%|████      | 2/5 [00:04<00:06,  2.33s/it]Loading checkpoint shards:  60%|██████    | 3/5 [00:06<00:04,  2.32s/it]Loading checkpoint shards:  80%|████████  | 4/5 [00:09<00:02,  2.33s/it]Loading checkpoint shards: 100%|██████████| 5/5 [00:11<00:00,  2.39s/it]Loading checkpoint shards: 100%|██████████| 5/5 [00:11<00:00,  2.36s/it]
+0it [00:00, ?it/s]1it [00:00,  1.32it/s]2it [00:00,  2.47it/s]3it [00:01,  3.36it/s]4it [00:01,  4.08it/s]5it [00:01,  4.63it/s]6it [00:01,  4.99it/s]7it [00:01,  5.18it/s]8it [00:01,  5.51it/s]9it [00:02,  5.66it/s]10it [00:02,  5.74it/s]11it [00:02,  5.67it/s]12it [00:02,  5.84it/s]13it [00:02,  5.85it/s]14it [00:02,  5.79it/s]15it [00:03,  5.11it/s]16it [00:03,  5.37it/s]17it [00:03,  5.68it/s]18it [00:03,  6.06it/s]19it [00:03,  6.23it/s]20it [00:03,  6.26it/s]21it [00:04,  5.99it/s]22it [00:04,  5.73it/s]23it [00:04,  5.83it/s]24it [00:04,  5.85it/s]25it [00:04,  5.42it/s]26it [00:05,  5.41it/s]27it [00:05,  5.35it/s]28it [00:05,  4.92it/s]29it [00:05,  5.02it/s]30it [00:05,  5.29it/s]31it [00:06,  5.49it/s]32it [00:06,  5.81it/s]33it [00:06,  5.86it/s]34it [00:06,  5.94it/s]35it [00:06,  5.95it/s]36it [00:06,  6.01it/s]37it [00:07,  5.89it/s]38it [00:07,  5.88it/s]39it [00:07,  5.97it/s]40it [00:07,  6.09it/s]41it [00:07,  6.06it/s]42it [00:07,  6.10it/s]43it [00:07,  6.27it/s]44it [00:08,  6.35it/s]45it [00:08,  6.64it/s]46it [00:08,  6.85it/s]47it [00:08,  6.97it/s]48it [00:08,  7.25it/s]49it [00:08,  7.07it/s]50it [00:08,  7.38it/s]51it [00:09,  7.31it/s]52it [00:09,  7.38it/s]53it [00:09,  7.36it/s]54it [00:09,  7.45it/s]55it [00:09,  7.40it/s]56it [00:09,  7.11it/s]57it [00:09,  7.27it/s]58it [00:10,  7.05it/s]59it [00:10,  6.78it/s]60it [00:10,  6.73it/s]61it [00:10,  7.00it/s]62it [00:10,  7.52it/s]63it [00:10,  7.90it/s]64it [00:10,  8.22it/s]65it [00:10,  8.44it/s]66it [00:11,  8.61it/s]67it [00:11,  8.73it/s]68it [00:11,  8.86it/s]69it [00:11,  8.93it/s]70it [00:11,  8.86it/s]71it [00:11,  8.95it/s]72it [00:11,  8.96it/s]73it [00:11,  9.02it/s]74it [00:11,  9.08it/s]75it [00:12,  8.66it/s]76it [00:12,  8.81it/s]77it [00:12,  8.91it/s]78it [00:12,  9.00it/s]79it [00:12,  8.76it/s]80it [00:12,  7.94it/s]81it [00:12,  8.20it/s]82it [00:12,  8.41it/s]83it [00:12,  8.57it/s]84it [00:13,  8.68it/s]85it [00:13,  8.75it/s]86it [00:13,  8.80it/s]87it [00:13,  8.85it/s]88it [00:13,  8.65it/s]89it [00:13,  8.72it/s]90it [00:13,  8.78it/s]91it [00:13,  8.85it/s]92it [00:14,  8.86it/s]93it [00:14,  8.91it/s]94it [00:14,  8.71it/s]95it [00:14,  8.76it/s]96it [00:14,  8.15it/s]97it [00:14,  7.04it/s]98it [00:14,  7.56it/s]99it [00:14,  7.97it/s]100it [00:15,  8.28it/s]101it [00:15,  8.50it/s]102it [00:15,  8.64it/s]103it [00:15,  8.77it/s]104it [00:15,  8.92it/s]105it [00:15,  8.98it/s]106it [00:15,  9.01it/s]107it [00:15,  9.00it/s]108it [00:15,  9.05it/s]109it [00:15,  9.02it/s]110it [00:16,  8.86it/s]111it [00:16,  7.83it/s]111it [00:16,  6.82it/s]
+['dog', 'cat']
+Succ. dumped identified super-class values to ./experiments/pet37/describe/pet_identify_answers_3
+Namespace(mode='howto', config_file_env='./configs/env_machine.yml', config_file_expt='./configs/expts/pet37_all.yml', num_per_category='3')
+{'setup': 'ours', 'experiment': 5.0, 'dataset_name': 'pet', 'num_classes': 37, 'num_base': 19, 'num_novel': 18, 'seed': 1, 'batch_size': 32, 'clustering_method': 'multi_clip_voting', 'model_size': 'ViT-B/16', 'model_size_vqa': 'FlanT5-XXL', 'model_type_llm': 'gpt-3.5-turbo', 'image_size': 224, 'verbose': False, 'host': 'chaos', 'num_workers': 16, 'device': 'cuda', 'device_count': '1', 'device_id': '0', 'data_dir': './datasets/pet_37', 'expt_dir': './experiments/pet37', 'expt_dir_describe': './experiments/pet37/describe', 'path_identify_answers': './experiments/pet37/describe/pet_identify_answers', 'path_vqa_questions': './experiments/pet37/describe/pet_vqa_questions', 'path_vqa_answers': './experiments/pet37/describe/pet_attributes_pairs', 'path_llm_prompts': './experiments/pet37/describe/pet_llm_prompts', 'expt_dir_guess': './experiments/pet37/guess', 'path_llm_replies_raw': './experiments/pet37/guess/pet_llm_replies_raw', 'path_llm_replies_jsoned': './experiments/pet37/guess/pet_llm_replies_jsoned', 'path_llm_gussed_names': './experiments/pet37/guess/pet_llm_gussed_names', 'expt_dir_grouping': './experiments/pet37/grouping'}
+
+Your task is to tell me what are the useful attributes for distinguishing dog breeds in a photo of a dog.
+
+Specifically, you can complete the task by following the instructions below:
+1 - I give you an example delimited by <> about what are the useful attributes for distinguishing bird species in 
+a photo of a bird. You should understand and learn this example carefully.
+2 - List the useful attributes for distinguishing dog breeds in a photo of a dog.
+3 - Output a Python list object that contains the listed useful attributes.
+
+===
+<bird species>
+The useful attributes for distinguishing bird species in a photo of a bird:
+['bill shape', 'wing color', 'upperparts color', 'underparts color', 'breast pattern',
+'back color', 'tail shape', 'upper tail color', 'head pattern', 'breast color',
+'throat color', 'eye color', 'bill length', 'forehead color', 'under tail color',
+'nape color', 'belly color', 'wing shape', 'size', 'shape',
+'back pattern', 'tail pattern', 'belly pattern', 'primary color', 'leg color',
+'bill color', 'crown color', 'wing pattern', 'habitat']
+===
+
+===
+<dog breeds>
+The useful attributes for distinguishing dog breeds in a photo of a dog:
+===
+
+====================
+The useful attributes for distinguishing dog breeds in a photo of a dog could include:
+- Coat color
+- Coat length
+- Ear shape
+- Tail shape
+- Eye color
+- Nose color
+- Body size
+- Leg length
+- Muzzle shape
+- Facial expression
+- Paw size
+- Tail length
+- Fur texture
+
+Here is a Python list object containing the listed useful attributes for distinguishing dog breeds:
+```python
+dog_attributes = ['Coat color', 'Coat length', 'Ear shape', 'Tail shape', 'Eye color', 'Nose color', 'Body size', 'Leg length', 'Muzzle shape', 'Facial expression', 'Paw size', 'Tail length', 'Fur texture']
+print(dog_attributes)
+```
+====================
+
+Your task is to tell me what are the useful attributes for distinguishing cat breeds in a photo of a cat.
+
+Specifically, you can complete the task by following the instructions below:
+1 - I give you an example delimited by <> about what are the useful attributes for distinguishing bird species in 
+a photo of a bird. You should understand and learn this example carefully.
+2 - List the useful attributes for distinguishing cat breeds in a photo of a cat.
+3 - Output a Python list object that contains the listed useful attributes.
+
+===
+<bird species>
+The useful attributes for distinguishing bird species in a photo of a bird:
+['bill shape', 'wing color', 'upperparts color', 'underparts color', 'breast pattern',
+'back color', 'tail shape', 'upper tail color', 'head pattern', 'breast color',
+'throat color', 'eye color', 'bill length', 'forehead color', 'under tail color',
+'nape color', 'belly color', 'wing shape', 'size', 'shape',
+'back pattern', 'tail pattern', 'belly pattern', 'primary color', 'leg color',
+'bill color', 'crown color', 'wing pattern', 'habitat']
+===
+
+===
+<cat breeds>
+The useful attributes for distinguishing cat breeds in a photo of a cat:
+===
+
+====================
+The useful attributes for distinguishing cat breeds in a photo of a cat:
+['coat color', 'coat pattern', 'ear shape', 'eye color', 'tail length', 'body size', 'facial structure', 'whisker length', 'paw size', 'nose shape', 'fur length', 'tail shape', 'head shape', 'eye shape', 'leg length', 'paw color']
+====================
