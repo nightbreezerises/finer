@@ -1,0 +1,2370 @@
+Namespace(mode='describe', config_file_env='./configs/env_machine.yml', config_file_expt='./configs/expts/pet37_all.yml', num_per_category='3')
+{'setup': 'ours', 'experiment': 5.0, 'dataset_name': 'pet', 'num_classes': 37, 'num_base': 19, 'num_novel': 18, 'seed': 1, 'batch_size': 32, 'clustering_method': 'multi_clip_voting', 'model_size': 'ViT-B/16', 'model_size_vqa': 'FlanT5-XXL', 'model_type_llm': 'gpt-3.5-turbo', 'image_size': 224, 'verbose': False, 'host': 'chaos', 'num_workers': 16, 'device': 'cuda', 'device_count': '1', 'device_id': '0', 'data_dir': './datasets/pet_37', 'expt_dir': './experiments/pet37', 'expt_dir_describe': './experiments/pet37/describe', 'path_vqa_questions': './experiments/pet37/describe/pet_vqa_questions', 'path_vqa_answers': './experiments/pet37/describe/pet_attributes_pairs', 'path_llm_prompts': './experiments/pet37/describe/pet_llm_prompts', 'expt_dir_guess': './experiments/pet37/guess', 'path_llm_replies_raw': './experiments/pet37/guess/pet_llm_replies_raw', 'path_llm_replies_jsoned': './experiments/pet37/guess/pet_llm_replies_jsoned', 'path_llm_gussed_names': './experiments/pet37/guess/pet_llm_gussed_names', 'expt_dir_grouping': './experiments/pet37/grouping'}
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:02<00:09,  2.31s/it]Loading checkpoint shards:  40%|████      | 2/5 [00:04<00:06,  2.28s/it]Loading checkpoint shards:  60%|██████    | 3/5 [00:06<00:04,  2.26s/it]Loading checkpoint shards:  80%|████████  | 4/5 [00:08<00:02,  2.23s/it]Loading checkpoint shards: 100%|██████████| 5/5 [00:11<00:00,  2.16s/it]Loading checkpoint shards: 100%|██████████| 5/5 [00:11<00:00,  2.21s/it]
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /home/hdl/project/FineR/FineR_3/discovering.py:369 in <module>               │
+│                                                                              │
+│   366 │   │   cname_sheet = DATA_STATS[cfg['dataset_name']]['class_names']   │
+│   367 │   │                                                                  │
+│   368 │   │   # build data set                                               │
+│ ❱ 369 │   │   data_discovery = DATA_DISCOVERY[cfg['dataset_name']](cfg, fold │
+│   370 │   │                                                                  │
+│   371 │   │   # build VQAbot prompter                                        │
+│   372 │   │   prompter = PROMPTERS[cfg['dataset_name']](cfg)                 │
+│                                                                              │
+│ /home/hdl/project/FineR/FineR_3/data/pet37.py:416 in build_pet37_discovery   │
+│                                                                              │
+│   413                                                                        │
+│   414                                                                        │
+│   415 def build_pet37_discovery(cfg: dict, folder_suffix=''):                │
+│ ❱ 416 │   set_to_discover = PetDiscovery37(cfg['data_dir'], folder_suffix=fo │
+│   417 │   return set_to_discover                                             │
+│   418                                                                        │
+│   419                                                                        │
+│                                                                              │
+│ /home/hdl/project/FineR/FineR_3/data/pet37.py:270 in __init__                │
+│                                                                              │
+│   267 │   def __init__(self, root, folder_suffix=''):                        │
+│   268 │   │   img_root = os.path.join(root, f'images_discovery_all{folder_su │
+│   269 │   │                                                                  │
+│ ❱ 270 │   │   self.class_folders = os.listdir(img_root)  # 100 x 1           │
+│   271 │   │   for i in range(len(self.class_folders)):                       │
+│   272 │   │   │   self.class_folders[i] = os.path.join(img_root, self.class_ │
+│   273                                                                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
+FileNotFoundError: [Errno 2] No such file or directory: 
+'./datasets/pet_37/images_discovery_all_3'
+Namespace(mode='guess', config_file_env='./configs/env_machine.yml', config_file_expt='./configs/expts/pet37_all.yml', num_per_category='3')
+{'setup': 'ours', 'experiment': 5.0, 'dataset_name': 'pet', 'num_classes': 37, 'num_base': 19, 'num_novel': 18, 'seed': 1, 'batch_size': 32, 'clustering_method': 'multi_clip_voting', 'model_size': 'ViT-B/16', 'model_size_vqa': 'FlanT5-XXL', 'model_type_llm': 'gpt-3.5-turbo', 'image_size': 224, 'verbose': False, 'host': 'chaos', 'num_workers': 16, 'device': 'cuda', 'device_count': '1', 'device_id': '0', 'data_dir': './datasets/pet_37', 'expt_dir': './experiments/pet37', 'expt_dir_describe': './experiments/pet37/describe', 'path_vqa_questions': './experiments/pet37/describe/pet_vqa_questions', 'path_vqa_answers': './experiments/pet37/describe/pet_attributes_pairs', 'path_llm_prompts': './experiments/pet37/describe/pet_llm_prompts', 'expt_dir_guess': './experiments/pet37/guess', 'path_llm_replies_raw': './experiments/pet37/guess/pet_llm_replies_raw', 'path_llm_replies_jsoned': './experiments/pet37/guess/pet_llm_replies_jsoned', 'path_llm_gussed_names': './experiments/pet37/guess/pet_llm_gussed_names', 'expt_dir_grouping': './experiments/pet37/grouping'}
+0it [00:00, ?it/s]1it [00:04,  4.81s/it]2it [00:06,  3.19s/it]3it [00:09,  3.00s/it]==============================
+		inferring [0] for Keeshond_0 used tokens = 1273
+==============================
+Raw----
+General Description: a dog is laying on the grass
+
+Attributes List:
+- body shape: a spherical shape
+- body size: large
+- head shape: a snub nose
+- head size: large
+- facial wrinkles: the dog has wrinkles on its face
+- neck length: short
+- leg length: short
+- leg shape: slender
+- leg thickness: thick
+- paw size: large
+- paw shape: square paws
+- toe shape: square toes
+- tail shape: a stubby tail
+- tail length: short tail
+- tail position: wagging
+- coat color: black and white
+- coat length: long and fluffy
+- coat texture: fluffy
+- coat pattern: a tan and black coat
+- fur texture: fluffy
+- fur lengthfur density: long and dense
+- eye shape: round
+- eye color: brown
+- ear position: ear is up
+- ear shape: erect
+- muzzle shape: snout
+- snout length: snout length is medium
+- nose shape: snub nose
+- nose color: black
+- overall body shape and proportion: the dog is a large dog with a long body and a short tail
+- breed-specific markings or patterns (e.g. spots, stripes, patches): the dog is a sable and white cairn terrier
+- overall appearance (e.g. sleek, fluffy, muscular): fluffy
+- facial markings: black and white
+- body markings: black and white
+
+Summary: The dog in the photo is a large dog with a spherical body shape, short neck, and short legs. It has a large snub-nosed head with facial wrinkles. The dog has large square paws and a stubby tail that wags. Its coat is long, fluffy, black and white in color, with a tan and black pattern. The breed is identified as a sable and white cairn terrier.
+
+Three possible dog breed names: Cairn Terrier, Tibetan Terrier, Shih Tzu
+
+Output JSON: 
+```json
+{
+    "Cairn Terrier, Tibetan Terrier, Shih Tzu": [
+        "The dog in the photo is a large dog with a spherical body shape, short neck, and short legs.",
+        "It has a large snub-nosed head with facial wrinkles.",
+        "The dog has large square paws and a stubby tail that wags.",
+        "Its coat is long, fluffy, black and white in color, with a tan and black pattern.",
+        "The breed is identified as a sable and white cairn terrier."
+    ]
+}
+```
+
+Trimed----
+{```json
+{
+    "Cairn Terrier, Tibetan Terrier, Shih Tzu": [
+        "The dog in the photo is a large dog with a spherical body shape, short neck, and short legs.",
+        "It has a large snub-nosed head with facial wrinkles.",
+        "The dog has large square paws and a stubby tail that wags.",
+        "Its coat is long, fluffy, black and white in color, with a tan and black pattern.",
+        "The breed is identified as a sable and white cairn terrier."
+    ]
+}
+```}
+
+END==============================
+
+==============================
+		inferring [1] for Keeshond_1 used tokens = 2187
+==============================
+Raw----
+Summary: The dog in the photo is a medium-sized hound with a large head and short neck and legs. It has a snub nosed head with a square muzzle and erect ears. The coat is short, fluffy, and of a gray and black color pattern. The dog has a stubby tail that points up and prominent facial wrinkles.
+
+Three possible dog breed names: Basset Hound, French Bulldog, Boston Terrier
+
+Output JSON: 
+{
+    "Basset Hound, French Bulldog, Boston Terrier": [
+        "The dog is a medium-sized hound with a large head and short neck and legs.",
+        "It has a snub nosed head with a square muzzle and erect ears.",
+        "The coat is short, fluffy, and of a gray and black color pattern.",
+        "The dog has a stubby tail that points up and prominent facial wrinkles.",
+        "Its overall body shape is short and squarish with distinct black and white markings."
+    ]
+}
+
+Trimed----
+{
+    "Basset Hound, French Bulldog, Boston Terrier": [
+        "The dog is a medium-sized hound with a large head and short neck and legs.",
+        "It has a snub nosed head with a square muzzle and erect ears.",
+        "The coat is short, fluffy, and of a gray and black color pattern.",
+        "The dog has a stubby tail that points up and prominent facial wrinkles.",
+        "Its overall body shape is short and squarish with distinct black and white markings."
+    ]
+}
+
+END==============================
+
+==============================
+		inferring [2] for Keeshond_2 used tokens = 3141
+==============================
+Raw----
+Summary: The dog in the photo is a large hound with a snub nose and facial wrinkles. It has a short neck, short legs with a slender shape and thick thickness, and large square-shaped paws. The dog has a short, fluffy coat that is black and white with fur that is short and dense. Its tail is stubby and points to the left, and it has round brown eyes and erect square-shaped ears.
+
+Three possible dog breed names: Basset Hound, Bulldog, Boxer
+
+Output JSON:
+{
+    "Basset Hound, Bulldog, Boxer": [
+        "The dog in the photo is a large hound with a snub nose and facial wrinkles.",
+        "It has short legs with a slender shape and thick thickness, and large square-shaped paws.",
+        "The dog has a short, fluffy coat that is black and white with fur that is short and dense.",
+        "Its tail is stubby and points to the left, and it has round brown eyes and erect square-shaped ears.",
+        "Overall, the dog has a short and squarish body shape and proportion with white and black body markings."
+    ]
+}
+
+Trimed----
+{
+    "Basset Hound, Bulldog, Boxer": [
+        "The dog in the photo is a large hound with a snub nose and facial wrinkles.",
+        "It has short legs with a slender shape and thick thickness, and large square-shaped paws.",
+        "The dog has a short, fluffy coat that is black and white with fur that is short and dense.",
+        "Its tail is stubby and points to the left, and it has round brown eyes and erect square-shaped ears.",
+        "Overall, the dog has a short and squarish body shape and proportion with white and black body markings."
+    ]
+}
+
+END==============================
+
+==============================
+		inferring [3] for English Cocker Spaniel_3 used tokens = 4530
+==============================
+Raw----
+4it [00:15,  4.11s/it]5it [00:17,  3.36s/it]6it [00:23,  4.26s/it]General Description: a dog is sitting in the grass looking up
+
+Attributes List:
+- body shape: a cocker spaniel
+- body size: medium
+- head shape: a cocker spaniel
+- head size: large
+- facial wrinkles: a cocker spaniel
+- neck length: short neck
+- leg length: short
+- leg shape: a cocker spaniel
+- leg thickness: thick
+- paw size: paw size of the dog in this photo is medium
+- paw shape: a paw shape of a cocker spaniel
+- toe shape: a splayed toe
+- tail shape: a cocked tail
+- tail length: short tail
+- tail position: tucked under the body
+- coat color: white and brown
+- coat length: short
+- coat texture: smooth
+- coat pattern: a tan and white coat
+- fur texture: smooth and silky
+- fur lengthfur density: short and dense
+- eye shape: oblong
+- eye color: brown
+- ear position: ear position is erect
+- ear shape: erect ears
+- muzzle shape: a snub nose
+- snout length: snout length is between a dachshund and a cocker
+- nose shape: a cocker spaniel
+- nose color: black
+- overall body shape and proportion: the dog is a cocker spaniel
+- breed-specific markings or patterns (e.g. spots, stripes, patches): the dog has a white chest and a black collar
+- overall appearance (e.g. sleek, fluffy, muscular): fluffy
+- facial markings: a white nose and a black nose
+- body markings: white on chest, white on belly, white on chest, white on belly, white on chest
+
+Summary: 
+The dog in the photo is a medium-sized cocker spaniel with a large head, short neck, and short legs. It has a thick leg shape and a paw size that is medium. The coat is white and brown with a tan and white pattern, short and smooth in texture. The dog's appearance overall is fluffy, with distinctive facial markings of a white and black nose and body markings of white patches on the chest and belly.
+
+Three possible dog breed names: Cocker Spaniel, English Springer Spaniel, Brittany
+
+Output JSON:
+{
+    "Cocker Spaniel, English Springer Spaniel, Brittany": [
+        "The dog in the photo is a medium-sized cocker spaniel with a large head, short neck, and short legs.",
+        "It has a thick leg shape and a paw size that is medium.",
+        "The coat is white and brown with a tan and white pattern, short and smooth in texture.",
+        "The dog's appearance overall is fluffy, with distinctive facial markings of a white and black nose and body markings of white patches on the chest and belly.",
+        "It has a tucked tail, erect ears, and an oblong brown eye shape."
+    ]
+}
+
+Trimed----
+{
+    "Cocker Spaniel, English Springer Spaniel, Brittany": [
+        "The dog in the photo is a medium-sized cocker spaniel with a large head, short neck, and short legs.",
+        "It has a thick leg shape and a paw size that is medium.",
+        "The coat is white and brown with a tan and white pattern, short and smooth in texture.",
+        "The dog's appearance overall is fluffy, with distinctive facial markings of a white and black nose and body markings of white patches on the chest and belly.",
+        "It has a tucked tail, erect ears, and an oblong brown eye shape."
+    ]
+}
+
+END==============================
+
+==============================
+		inferring [4] for English Cocker Spaniel_4 used tokens = 5544
+==============================
+Raw----
+Summary: The photo shows a medium-sized cocker spaniel with a large spherical head, short neck and legs, thick paws, and a short tail. Its coat is brown and white, short and smooth, with a tan patch. The dog has a fluffy appearance with a round brown eyes and erect ears, and a medium-length snout with a snub nose.
+            
+            Three possible dog breed names: Cocker Spaniel, English Springer Spaniel, Brittany Spaniel
+            
+            Output JSON: 
+            {
+                "Cocker Spaniel, English Springer Spaniel, Brittany Spaniel": [
+                    "The photo displays a medium-sized cocker spaniel with a large spherical head, short neck and legs, thick paws, and a short tail.",
+                    "Its coat is brown and white, short and smooth, with a tan patch.",
+                    "The dog has a fluffy appearance with round brown eyes and erect ears, and a medium-length snout with a snub nose.",
+                    "The overall body shape and proportion resemble those of a typical cocker spaniel.",
+                    "There are breed-specific markings such as white on the chest, belly, legs, and chest."
+                ]
+            }
+
+Trimed----
+{
+                "Cocker Spaniel, English Springer Spaniel, Brittany Spaniel": [
+                    "The photo displays a medium-sized cocker spaniel with a large spherical head, short neck and legs, thick paws, and a short tail.",
+                    "Its coat is brown and white, short and smooth, with a tan patch.",
+                    "The dog has a fluffy appearance with round brown eyes and erect ears, and a medium-length snout with a snub nose.",
+                    "The overall body shape and proportion resemble those of a typical cocker spaniel.",
+                    "There are breed-specific markings such as white on the chest, belly, legs, and chest."
+                ]
+            }
+
+END==============================
+
+==============================
+		inferring [5] for English Cocker Spaniel_5 used tokens = 6790
+==============================
+Raw----
+General Description: A dog is laying on a rug
+
+Attributes List:
+- Body Shape: a dog with a long body
+- Body Size: medium
+- Head Shape: a cocker spaniel
+- Head Size: small
+- Facial Wrinkles: a dog with a white and brown coat
+- Neck Length: short neck
+- Leg Length: short
+- Leg Shape: slender
+- Leg Thickness: thin
+- Paw Size: small
+- Paw Shape: square paws
+- Toe Shape: square toes
+- Tail Shape: a stub tail
+- Tail Length: short tail
+- Tail Position: tucked under the dog
+- Coat Color: brown and white
+- Coat Length: short
+- Coat Texture: smooth
+- Coat Pattern: a hound
+- Fur Texture: soft
+- Fur Length/Fur Density: short and dense
+- Eye Shape: round
+- Eye Color: brown
+- Ear Position: ear is pointing forward
+- Ear Shape: erect
+- Muzzle Shape: square
+- Snout Length: short
+- Nose Shape: snub nose
+- Nose Color: black
+- Overall Body Shape and Proportion: a dog with a long body and short legs
+- Breed-Specific Markings or Patterns: white and brown
+- Overall Appearance: fluffy
+- Facial Markings: white and brown
+- Body Markings: white and brown
+
+Summary:
+The dog in the photo is a medium-sized canine with a long body, short legs, and a fluffy brown and white coat. It has a small head with a cocker spaniel-like shape, short neck, and slender legs with thin paws. The dog has a short tail that is tucked under its body and square paws and toes. Its overall appearance is fluffy with white and brown markings on its face and body.
+
+Three possible dog breed names: Cocker Spaniel, Basset Hound, Dachshund
+
+Output JSON:
+{
+    "Cocker Spaniel, Basset Hound, Dachshund": [
+        "The dog in the photo is a medium-sized canine with a long body, short legs, and a fluffy brown and white coat.",
+        "It has a small head with a cocker spaniel-like shape, short neck, and slender legs with thin paws.",
+        "The dog has a short tail that is tucked under its body and square paws and toes.",
+        "Its overall appearance is fluffy with white and brown markings on its face and body.",
+        "The canine exhibits characteristics that resemble Cocker Spaniel, Basset Hound, and Dachshund breeds."
+    ]
+}
+
+Trimed----
+{
+    "Cocker Spaniel, Basset Hound, Dachshund": [
+        "The dog in the photo is a medium-sized canine with a long body, short legs, and a fluffy brown and white coat.",
+        "It has a small head with a cocker spaniel-like shape, short neck, and slender legs with thin paws.",
+        "The dog has a short tail that is tucked under its body and square paws and toes.",
+        "Its overall appearance is fluffy with white and brown markings on its face and body.",
+        "The canine exhibits characteristics that resemble Cocker Spaniel, Basset Hound, and Dachshund breeds."
+    ]
+}
+
+END==============================
+
+==============================
+		inferring [6] for Bombay_6 used tokens = 8323
+==============================
+Raw----
+7it [00:29,  4.71s/it]8it [00:33,  4.65s/it]General Description: ```A black cat is standing on a towel```
+
+Attributes List:
+- **Body Shape**: A cat with a long body
+- **Body Size**: Medium
+- **Head Shape**: A spherical head
+- **Head Size**: Large
+- **Facial Wrinkles**: A cat with a black coat
+- **Neck Length**: Short
+- **Leg Length**: Short
+- **Leg Shape**: Slender
+- **Leg Thickness**: Thin
+- **Paw Size**: Paw size is medium
+- **Paw Shape**: Paws are round
+- **Toe Shape**: A cat with splayed toes
+- **Tail Shape**: A stubby tail
+- **Tail Length**: Short tail
+- **Tail Position**: Tucked under the body
+- **Coat Color**: Black
+- **Coat Length**: Short
+- **Coat Texture**: Short, dense coat
+- **Coat Pattern**: Solid black cat
+- **Fur Texture**: Smooth
+- **Fur Length/Density**: Short and dense
+- **Eye Shape**: Round eyes
+- **Eye Color**: Green
+- **Ear Position**: Ears pointing forward
+- **Ear Shape**: Rounded ear shape
+- **Muzzle Shape**: Snout
+- **Snout Length**: Medium
+- **Nose Shape**: Snout
+- **Nose Color**: Black
+- **Overall Body Shape and Proportion**: A black cat with a long body and a short tail
+- **Breed-Specific Markings or Patterns**: A black cat with yellow eyes
+- **Overall Appearance**: Sleek
+- **Facial Markings**: A black cat with a white nose and chin
+- **Body Markings**: Black with white markings
+- **Whisker Length**: Short
+- **Whisker Shape**: Slanted whiskers
+- **Claw Length**: Long
+- **Claw Shape**: Slender claw
+
+Summary: The cat in the photo is a sleek black cat with a long body, short tail, and short, dense coat. It has round green eyes, a large spherical head, and a snout with a medium length. The cat features a black coat with white markings on the face and body, with short whiskers and slender claws.
+
+Three possible cat breed names: Bombay, Oriental Shorthair, American Shorthair
+
+Output JSON:
+```json
+{
+    "Bombay": [
+        "The cat is a sleek black cat with a long body, short tail, and short, dense coat.",
+        "It has round green eyes, a large spherical head, and a snout with a medium length.",
+        "The cat features a black coat with white markings on the face and body, with short whiskers and slender claws."
+    ],
+    "Oriental Shorthair": [
+        "The cat is a sleek black cat with a long body, short tail, and short, dense coat.",
+        "It has round green eyes, a large spherical head, and a snout with a medium length.",
+        "The cat features a black coat with white markings on the face and body, with short whiskers and slender claws."
+    ],
+    "American Shorthair": [
+        "The cat is a sleek black cat with a long body, short tail, and short, dense coat.",
+        "It has round green eyes, a large spherical head, and a snout with a medium length.",
+        "The cat features a black coat with white markings on the face and body, with short whiskers and slender claws."
+    ]
+}
+```
+
+Trimed----
+{```json
+{
+    "Bombay": [
+        "The cat is a sleek black cat with a long body, short tail, and short, dense coat.",
+        "It has round green eyes, a large spherical head, and a snout with a medium length.",
+        "The cat features a black coat with white markings on the face and body, with short whiskers and slender claws."
+    ],
+    "Oriental Shorthair": [
+        "The cat is a sleek black cat with a long body, short tail, and short, dense coat.",
+        "It has round green eyes, a large spherical head, and a snout with a medium length.",
+        "The cat features a black coat with white markings on the face and body, with short whiskers and slender claws."
+    ],
+    "American Shorthair": [
+        "The cat is a sleek black cat with a long body, short tail, and short, dense coat.",
+        "It has round green eyes, a large spherical head, and a snout with a medium length.",
+        "The cat features a black coat with white markings on the face and body, with short whiskers and slender claws."
+    ]
+}
+```}
+
+END==============================
+
+==============================
+		inferring [7] for Bombay_7 used tokens = 9709
+==============================
+Raw----
+General Description: A black cat sitting on a yellow background
+
+Attributes List:
+- Body shape: A cat with a long body
+- Body size: Medium
+- Head shape: A cat with a rounded head
+- Head size: Large
+- Facial wrinkles: The cat has a squinty expression
+- Neck length: Short neck
+- Leg length: Short
+- Leg shape: Slender and straight
+- Leg thickness: The cat has thick legs
+- Paw size: Paw size is medium
+- Paw shape: Paws are round
+- Toe shape: A cat with a splayed toe
+- Tail shape: A slender tail
+- Tail length: Short tail
+- Tail position: The tail is tucked under the body
+- Coat color: Black
+- Coat length: Short
+- Coat texture: Smooth and glossy
+- Coat pattern: A solid black coat
+- Fur texture: Smooth and silky
+- Fur length/density: Short and dense
+- Eye shape: Round eyes
+- Eye color: Blue
+- Ear position: The cat's ears are pinned back
+- Ear shape: Ear shape is erect
+- Muzzle shape: Snout is long and slender
+- Snout length: Snout length is medium
+- Nose shape: A cat with a snub nose
+- Nose color: Black
+- Overall body shape and proportion: The cat is a black cat with a long body and a short tail
+- Breed-specific markings or patterns: The cat is black with white markings on the chest and belly
+- Overall appearance: Sleek
+- Facial markings: The cat has a white nose and a white chin
+- Body markings: The cat has a white chest and a white tummy
+- Whisker length: Short
+- Whisker shape: A slanted whisker tip
+- Claw length: Long
+- Claw shape: A slender claw
+
+Summary: The cat in the photo is a sleek black cat with blue round eyes, a long body, and a short tail. It has a squinty expression on its face and exhibits white markings on its chest and belly.
+
+Three possible cat breed names: Bombay, Oriental Shorthair, American Shorthair
+
+Output JSON:
+{
+    "Bombay, Oriental Shorthair, American Shorthair": [
+        "The cat in the photo is a sleek black cat with blue round eyes, a long body, and a short tail.",
+        "It has a squinty expression on its face.",
+        "The cat exhibits white markings on its chest and belly.",
+        "The cat has a rounded head and a snub nose.",
+        "Its overall appearance is sleek with a solid black coat and short dense fur."
+    ]
+}
+
+Trimed----
+{
+    "Bombay, Oriental Shorthair, American Shorthair": [
+        "The cat in the photo is a sleek black cat with blue round eyes, a long body, and a short tail.",
+        "It has a squinty expression on its face.",
+        "The cat exhibits white markings on its chest and belly.",
+        "The cat has a rounded head and a snub nose.",
+        "Its overall appearance is sleek with a solid black coat and short dense fur."
+    ]
+}
+
+END==============================
+
+==============================
+		inferring [8] for Bombay_8 used tokens = 10722
+==============================
+Raw----
+**Summary:** The black cat in the photo has a round and small body with a short and slender build. It has a small and round head with wrinkles on its face. The cat's legs are short and thin, with large paws that are round in shape. Its coat is short, soft, and solid black in color, with a short and dense fur texture. The cat has round blue eyes, a short snout with a snub nose, and rounded ears that are tucked in. Overall, the cat displays a sleek appearance with specific markings of being black with white paws.
+
+**Three possible cat breed names:** Bombay, Oriental Shorthair, Devon Rex
+
+**Output JSON:**
+```json
+{
+	"Bombay, Oriental Shorthair, Devon Rex": [
+		"The black cat in the photo has a round and small body with a short and slender build.",
+		"It has a small and round head with wrinkles on its face.",
+		"The cat's legs are short and thin, with large paws that are round in shape.",
+		"Its coat is short, soft, and solid black in color, with a short and dense fur texture.",
+		"The cat has round blue eyes, a short snout with a snub nose, and rounded ears that are tucked in."
+	]
+}
+```
+
+Trimed----
+9it [00:37,  4.28s/it]10it [00:42,  4.50s/it]11it [00:46,  4.37s/it]{**
+```json
+{
+	"Bombay, Oriental Shorthair, Devon Rex": [
+		"The black cat in the photo has a round and small body with a short and slender build.",
+		"It has a small and round head with wrinkles on its face.",
+		"The cat's legs are short and thin, with large paws that are round in shape.",
+		"Its coat is short, soft, and solid black in color, with a short and dense fur texture.",
+		"The cat has round blue eyes, a short snout with a snub nose, and rounded ears that are tucked in."
+	]
+}
+```}
+
+END==============================
+
+==============================
+		inferring [9] for Leonberger_9 used tokens = 11959
+==============================
+Raw----
+General Description: A woman is petting a large dog in a park.
+
+Attributes List:
+- body shape: a large dog
+- body size: large
+- head shape: square
+- head size: large
+- facial wrinkles: a lot of wrinkles
+- neck length: short neck
+- leg length: short
+- leg shape: straight
+- leg thickness: thick
+- paw size: large
+- paw shape: square paws
+- toe shape: square toes
+- tail shape: a stubby tail
+- tail length: short tail
+- tail position: pointing to the left
+- coat color: brown and tan
+- coat length: long
+- coat texture: fluffy
+- coat pattern: a tan and brown coat
+- fur texture: soft and fluffy
+- fur lengthfur density: long and dense
+- eye shape: round
+- eye color: brown
+- ear position: ear is up
+- ear shape: erect
+- muzzle shape: square muzzle
+- snout length: short
+- nose shape: snub nose
+- nose color: black
+- overall body shape and proportion: large and muscular
+- breed-specific markings or patterns (e.g. spots, stripes, patches): a large dog with a white chest
+- overall appearance (e.g. sleek, fluffy, muscular): fluffy
+- facial markings: a white nose
+- body markings: a large dog with a white chest
+
+Summary: The dog in the photo is a large, square-headed, and muscular breed with a lot of wrinkles, short neck, and straight, thick legs. It has large square paws, a stubby tail, and a long, fluffy coat with a tan and brown pattern. The dog has a round-eyed expression with a short snout, black nose, and erect ears.
+
+Three possible dog breed names: Newfoundland, Saint Bernard, Bernese Mountain Dog
+
+Output JSON:
+{
+    "Newfoundland, Saint Bernard, Bernese Mountain Dog": [
+        "The dog in the photo is a large, square-headed, and muscular breed with a lot of wrinkles, short neck, and straight, thick legs.",
+        "It has large square paws, a stubby tail, and a long, fluffy coat with a tan and brown pattern.",
+        "The dog has a round-eyed expression with a short snout, black nose, and erect ears.",
+        "The overall appearance of the dog is fluffy with breed-specific markings of a white chest and facial markings of a white nose.",
+        "Its body markings contribute to its large and muscular appearance."
+    ]
+}
+
+Trimed----
+{
+    "Newfoundland, Saint Bernard, Bernese Mountain Dog": [
+        "The dog in the photo is a large, square-headed, and muscular breed with a lot of wrinkles, short neck, and straight, thick legs.",
+        "It has large square paws, a stubby tail, and a long, fluffy coat with a tan and brown pattern.",
+        "The dog has a round-eyed expression with a short snout, black nose, and erect ears.",
+        "The overall appearance of the dog is fluffy with breed-specific markings of a white chest and facial markings of a white nose.",
+        "Its body markings contribute to its large and muscular appearance."
+    ]
+}
+
+END==============================
+
+==============================
+		inferring [10] for Leonberger_10 used tokens = 13152
+==============================
+Raw----
+General Description: a large dog is walking through the woods
+
+Attributes List:
+- body shape: a large dog
+- body size: large
+- head shape: square
+- head size: large
+- facial wrinkles: a large dog
+- neck length: short
+- leg length: short
+- leg shape: slender
+- leg thickness: thick
+- paw size: large
+- paw shape: square paws
+- toe shape: square toes
+- tail shape: a stubby tail
+- tail length: short tail
+- tail position: wagging
+- coat color: brown
+- coat length: short
+- coat texture: smooth
+- coat pattern: a tan and brown coat
+- fur texture: soft
+- fur length/fur density: short and dense
+- eye shape: round
+- eye color: brown
+- ear position: ear position is up
+- ear shape: erect
+- muzzle shape: square
+- snout length: snout length is long
+- nose shape: snub nose
+- nose color: black
+- overall body shape and proportion: large
+- breed-specific markings or patterns (e.g. spots, stripes, patches): a large dog with a white chest
+- overall appearance (e.g. sleek, fluffy, muscular): fluffy
+- facial markings: a large dog with a white nose
+- body markings: brown and white
+
+Summary: The dog in the photo is a large, square-headed dog with a fluffy, brown coat, white chest, and facial markings. It has a short, stubby tail that wags while walking through the woods. The dog has a thick, square-shaped paw and a snub nose with a black color. Its overall appearance is big and fluffy.
+Three possible dog breed names: Newfoundland, Saint Bernard, Bernese Mountain Dog
+
+Output JSON:
+{
+    "Newfoundland, Saint Bernard, Bernese Mountain Dog": [
+        "The dog in the photo is a large, square-headed dog with a fluffy, brown coat, white chest, and facial markings.",
+        "It has a short, stubby tail that wags while walking through the woods.",
+        "The dog has a thick, square-shaped paw and a snub nose with a black color.",
+        "Its overall appearance is big and fluffy.",
+        "The dog exhibits characteristics similar to Newfoundland, Saint Bernard, and Bernese Mountain Dog breeds."
+    ]
+}
+
+Trimed----
+{
+    "Newfoundland, Saint Bernard, Bernese Mountain Dog": [
+        "The dog in the photo is a large, square-headed dog with a fluffy, brown coat, white chest, and facial markings.",
+        "It has a short, stubby tail that wags while walking through the woods.",
+        "The dog has a thick, square-shaped paw and a snub nose with a black color.",
+        "Its overall appearance is big and fluffy.",
+        "The dog exhibits characteristics similar to Newfoundland, Saint Bernard, and Bernese Mountain Dog breeds."
+    ]
+}
+
+END==============================
+
+==============================
+		inferring [11] for Leonberger_11 used tokens = 14343
+==============================
+Raw----
+General Description: The photo shows a dog looking at the camera.
+
+Attributes List:
+- Body shape: A large dog
+- Body size: Large
+- Head shape: Snub nose
+- Head size: Large
+- Facial wrinkles: A lot of wrinkles
+- Neck length: Short
+- Leg length: Short
+- Leg shape: Slender
+- Leg thickness: Thick
+- Paw size: Large
+- Paw shape: Square paws
+- Toe shape: Square toes
+- Tail shape: A stubby tail
+- Tail length: Short tail
+- Tail position: Wagging
+- Coat color: Brown and black
+- Coat length: Short
+- Coat texture: Fluffy
+- Coat pattern: A mix of black and brown
+- Fur texture: Fluffy
+- Fur lengthfur density: Long and dense
+- Eye shape: Round
+- Eye color: Brown
+- Ear position: The ears are up
+- Ear shape: Erect
+- Muzzle shape: Square muzzle
+- Snout length: Short
+- Nose shape: Snub nose
+- Nose color: Black
+- Overall body shape and proportion: A large dog
+- Breed-specific markings or patterns: A brown and black dog
+- Overall appearance: Fluffy
+- Facial markings: Black nose
+- Body markings: Brown and black
+
+Summary: The dog in the photo is a large, fluffy dog with a snub nose and a lot of wrinkles. It has short legs, a stubby tail, and a brown and black coat with a mix of colors. Its ears are erect, and it has a square muzzle and square paws.
+
+Three possible dog breed names: 
+1. Bulldog
+2. Boxer
+3. Chow Chow
+
+Output JSON:
+```json
+{
+    "Bulldog, Boxer, Chow Chow": [
+        "The dog in the photo is a large, fluffy dog with a snub nose and a lot of wrinkles.",
+        "It has short legs, a stubby tail, and a brown and black coat with a mix of colors.",
+        "Its ears are erect, and it has a square muzzle and square paws.",
+        "The dog's overall appearance is fluffy, and it has a round brown eyes and a short snout.",
+        "With its distinctive features, the dog resembles breeds like Bulldog, Boxer, and Chow Chow."
+    ]
+}
+```
+
+Trimed----
+12it [00:51,  4.66s/it]13it [00:58,  5.22s/it]14it [01:00,  4.38s/it]15it [01:06,  4.74s/it]{```json
+{
+    "Bulldog, Boxer, Chow Chow": [
+        "The dog in the photo is a large, fluffy dog with a snub nose and a lot of wrinkles.",
+        "It has short legs, a stubby tail, and a brown and black coat with a mix of colors.",
+        "Its ears are erect, and it has a square muzzle and square paws.",
+        "The dog's overall appearance is fluffy, and it has a round brown eyes and a short snout.",
+        "With its distinctive features, the dog resembles breeds like Bulldog, Boxer, and Chow Chow."
+    ]
+}
+```}
+
+END==============================
+
+==============================
+		inferring [12] for Yorkshire Terrier_12 used tokens = 15533
+==============================
+Raw----
+General Description: A dog is sitting on the floor.
+
+Attributes List:
+- Body shape: A small dog
+- Body size: Small
+- Head shape: A small dog
+- Head size: Small
+- Facial wrinkles: A Yorkshire Terrier
+- Neck length: Short
+- Leg length: Short
+- Leg shape: Short legs
+- Leg thickness: Thin
+- Paw size: Small
+- Paw shape: Square paws
+- Toe shape: Square toes
+- Tail shape: A stubby tail
+- Tail length: Short tail
+- Tail position: Tucked under the dog
+- Coat color: Brown and black
+- Coat length: Short
+- Coat texture: Smooth
+- Coat pattern: A tan and brown coat
+- Fur texture: Soft
+- Fur length/fur density: Short and dense
+- Eye shape: Round
+- Eye color: Brown
+- Ear position: Ear is pointing forward
+- Ear shape: Floppy
+- Muzzle shape: Square muzzle
+- Snout length: Short
+- Nose shape: Snub nose
+- Nose color: Black
+- Overall body shape and proportion: A small dog
+- Breed-specific markings or patterns: A small dog with a tan coat
+- Overall appearance: Fluffy
+- Facial markings: A small dog with a snout
+- Body markings: A small dog with a brown coat
+
+Summary: The dog in the photo is a small Yorkshire Terrier with a fluffy, brown and black coat. It has short legs, a stubby tail, and a square muzzle. The dog has a soft fur texture and a snub nose with brown eyes. Its overall appearance is small and fluffy.
+
+Three possible dog breed names: Yorkshire Terrier, Shih Tzu, Maltese
+
+Output JSON:
+```json
+{
+    "Yorkshire Terrier, Shih Tzu, Maltese": [
+        "The dog in the photo is a small Yorkshire Terrier with a fluffy, brown and black coat.",
+        "It has short legs, a stubby tail, and a square muzzle.",
+        "The dog has a soft fur texture and a snub nose with brown eyes.",
+        "Its overall appearance is small and fluffy.",
+        "The Yorkie, Shih Tzu, or Maltese could be possible breeds based on the attributes."
+    ]
+}
+```
+
+Trimed----
+{```json
+{
+    "Yorkshire Terrier, Shih Tzu, Maltese": [
+        "The dog in the photo is a small Yorkshire Terrier with a fluffy, brown and black coat.",
+        "It has short legs, a stubby tail, and a square muzzle.",
+        "The dog has a soft fur texture and a snub nose with brown eyes.",
+        "Its overall appearance is small and fluffy.",
+        "The Yorkie, Shih Tzu, or Maltese could be possible breeds based on the attributes."
+    ]
+}
+```}
+
+END==============================
+
+==============================
+		inferring [13] for Yorkshire Terrier_13 used tokens = 16491
+==============================
+Raw----
+Summary: The small dog in the photo has a body shape of a Yorkshire Terrier with small body and head size. It has facial wrinkles, a short neck, and slender, thin legs with small square paws. The dog's coat is short, smooth, brown and black in color, with a tan and black pattern. It has a soft and fluffy fur with short and dense texture. The dog's tail is stubby and short, wagging in position.
+
+            Three possible dog breed names: Yorkshire Terrier, Shih Tzu, Pomeranian
+
+            Output JSON:
+            {
+                    "Yorkshire Terrier, Shih Tzu, Pomeranian": [
+                            "The small dog in the photo has a body shape of a Yorkshire Terrier with small body and head size.",
+                            "It has facial wrinkles, a short neck, and slender, thin legs with small square paws.",
+                            "The dog's coat is short, smooth, brown and black in color, with a tan and black pattern.",
+                            "It has a soft and fluffy fur with short and dense texture.",
+                            "The dog's tail is stubby and short, wagging in position."
+                    ]
+            }
+
+Trimed----
+{
+                    "Yorkshire Terrier, Shih Tzu, Pomeranian": [
+                            "The small dog in the photo has a body shape of a Yorkshire Terrier with small body and head size.",
+                            "It has facial wrinkles, a short neck, and slender, thin legs with small square paws.",
+                            "The dog's coat is short, smooth, brown and black in color, with a tan and black pattern.",
+                            "It has a soft and fluffy fur with short and dense texture.",
+                            "The dog's tail is stubby and short, wagging in position."
+                    ]
+            }
+
+END==============================
+
+==============================
+		inferring [14] for Yorkshire Terrier_14 used tokens = 17730
+==============================
+Raw----
+General Description: a small dog is looking at the camera
+
+Attributes List:
+- body shape: a small dog
+- body size: small
+- head shape: a yorkie
+- head size: small
+- facial wrinkles: a yorkie
+- neck length: short
+- leg length: short
+- leg shape: square
+- leg thickness: thin
+- paw size: small
+- paw shape: square paws
+- toe shape: square toes
+- tail shape: a stubby tail
+- tail length: short tail
+- tail position: wagging
+- coat color: brown and white
+- coat length: short
+- coat texture: smooth
+- coat pattern: a yorkie
+- fur texture: soft
+- fur length/fur density: short and dense
+- eye shape: round
+- eye color: brown
+- ear position: the ears are pinned back
+- ear shape: erect
+- muzzle shape: square muzzle
+- snout length: short
+- nose shape: snub nose
+- nose color: brown
+- overall body shape and proportion: the dog is small
+- breed-specific markings or patterns (e.g. spots, stripes, patches): a small dog with a shaved head
+- overall appearance (e.g. sleek, fluffy, muscular): fluffy
+- facial markings: a small dog with a squinty look
+- body markings: a small dog with a long-haired face
+
+Summary: The dog in the photo is a small yorkie with a short, square body and legs. It has a fluffy, brown and white coat with a stubby tail and wagging position. The dog has a small, round head with facial wrinkles and a square muzzle, along with pinned back ears and a snub nose. Overall, it has a cute and squinty appearance.
+
+Three possible dog breed names: Yorkshire Terrier, Silky Terrier, Biewer Terrier
+
+Output JSON:
+{
+    "Yorkshire Terrier, Silky Terrier, Biewer Terrier": [
+        "The dog in the photo is a small yorkie with a short, square body and legs.",
+        "It has a fluffy, brown and white coat with a stubby tail and wagging position.",
+        "The dog has a small, round head with facial wrinkles and a square muzzle, along with pinned back ears and a snub nose.",
+        "Overall, it has a cute and squinty appearance.",
+        "The dog displays characteristics of a Yorkshire Terrier, Silky Terrier, or Biewer Terrier."
+    ]
+}
+
+Trimed----
+{
+    "Yorkshire Terrier, Silky Terrier, Biewer Terrier": [
+        "The dog in the photo is a small yorkie with a short, square body and legs.",
+        "It has a fluffy, brown and white coat with a stubby tail and wagging position.",
+        "The dog has a small, round head with facial wrinkles and a square muzzle, along with pinned back ears and a snub nose.",
+        "Overall, it has a cute and squinty appearance.",
+        "The dog displays characteristics of a Yorkshire Terrier, Silky Terrier, or Biewer Terrier."
+    ]
+}
+
+END==============================
+
+==============================
+		inferring [15] for Boxer_15 used tokens = 18637
+==============================
+Raw----
+16it [01:08,  3.92s/it]17it [01:10,  3.39s/it]18it [01:15,  3.84s/it]Summary: The dog in the photo is a large Boxer with a square head and short neck. It has short, square legs with thick paws and a square tail that wags. The coat is short and smooth, with brown and black colors in a hound pattern. The overall appearance is muscular, with distinct facial markings like a white nose and brown and white body markings.
+
+Three possible dog breed names: Boxer, Doberman, Rottweiler
+
+Output JSON:
+{
+    "Boxer, Doberman, Rottweiler": [
+        "The dog is a large Boxer with a square head and short neck.",
+        "It has short, square legs with thick paws and a square tail that wags.",
+        "The coat is short and smooth, with brown and black colors in a hound pattern.",
+        "The overall appearance is muscular, with distinct facial markings like a white nose and brown and white body markings.",
+        "It exhibits characteristics that are commonly associated with Boxer, Doberman, and Rottweiler breeds."
+    ]
+}
+
+Trimed----
+{
+    "Boxer, Doberman, Rottweiler": [
+        "The dog is a large Boxer with a square head and short neck.",
+        "It has short, square legs with thick paws and a square tail that wags.",
+        "The coat is short and smooth, with brown and black colors in a hound pattern.",
+        "The overall appearance is muscular, with distinct facial markings like a white nose and brown and white body markings.",
+        "It exhibits characteristics that are commonly associated with Boxer, Doberman, and Rottweiler breeds."
+    ]
+}
+
+END==============================
+
+==============================
+		inferring [16] for Boxer_16 used tokens = 19544
+==============================
+Raw----
+Summary: The dog in the photo is a large Boxer with a muscular build, short coat, and a square head shape. It has a distinct square tail that is short and tucked under. The dog has a brown coat color, square paws, and a short, black square nose. Its ears are floppy and point forward, and it has a short snout with a muscular overall appearance.
+            
+            Three possible dog breed names: Boxer, Bulldog, Mastiff
+            
+            Output JSON:
+            {
+                "Boxer, Bulldog, Mastiff": [
+                    "The dog in the photo is a large Boxer with a muscular build, short coat, and a square head shape.",
+                    "It has a distinct square tail that is short and tucked under.",
+                    "The dog has a brown coat color, square paws, and a short, black square nose.",
+                    "Its ears are floppy and point forward, and it has a short snout with a muscular overall appearance.",
+                    "The dog displays characteristics consistent with breeds like Boxer, Bulldog, or Mastiff."
+                ]
+            }
+
+Trimed----
+{
+                "Boxer, Bulldog, Mastiff": [
+                    "The dog in the photo is a large Boxer with a muscular build, short coat, and a square head shape.",
+                    "It has a distinct square tail that is short and tucked under.",
+                    "The dog has a brown coat color, square paws, and a short, black square nose.",
+                    "Its ears are floppy and point forward, and it has a short snout with a muscular overall appearance.",
+                    "The dog displays characteristics consistent with breeds like Boxer, Bulldog, or Mastiff."
+                ]
+            }
+
+END==============================
+
+==============================
+		inferring [17] for Boxer_17 used tokens = 20724
+==============================
+Raw----
+General Description: A dog is sitting on a fence.
+
+Attributes List:
+- Body shape: Boxer
+- Body size: Large
+- Head shape: Boxer
+- Head size: Large
+- Facial wrinkles: A boxer
+- Neck length: Short
+- Leg length: Short
+- Leg shape: Boxer
+- Leg thickness: Thick
+- Paw size: Large
+- Paw shape: Square paws
+- Toe shape: Square toes
+- Tail shape: Square tail
+- Tail length: Short
+- Tail position: Wagging
+- Coat color: Brown and white
+- Coat length: Short
+- Coat texture: Smooth
+- Coat pattern: A boxer
+- Fur texture: Smooth
+- Fur length/density: Short and dense
+- Eye shape: Round
+- Eye color: Brown
+- Ear position: Ear is up
+- Ear shape: Erect
+- Muzzle shape: Square muzzle
+- Snout length: Short
+- Nose shape: A boxer
+- Nose color: Black
+- Overall body shape and proportion: Boxer
+- Breed-specific markings or patterns: The dog is brown and white
+- Overall appearance: Muscular
+- Facial markings: White on the nose
+- Body markings: Brown and white
+
+Summary: The dog in the photo appears to be a large, muscular Boxer with a short and dense brown and white coat. It has distinct features typical of Boxers, such as a square head, short square muzzle, and erect ears. The dog's body shape, leg shape, paw size, and overall appearance align with the characteristics of the Boxer breed.
+
+Three possible dog breed names: Boxer, Bulldog, Boston Terrier
+
+Output JSON: 
+{
+    "Boxer, Bulldog, Boston Terrier": [
+        "The dog in the photo appears to be a large, muscular Boxer with a short and dense brown and white coat.",
+        "It has distinct features typical of Boxers, such as a square head, short square muzzle, and erect ears.",
+        "The dog's body shape, leg shape, paw size, and overall appearance align with the characteristics of the Boxer breed.",
+        "The coat color is brown and white, the coat texture smooth, and the overall body shape is muscular.",
+        "Features like facial wrinkles, short tail, and square paws further suggest the dog belongs to the Boxer breed."
+    ]
+}
+
+Trimed----
+{
+    "Boxer, Bulldog, Boston Terrier": [
+        "The dog in the photo appears to be a large, muscular Boxer with a short and dense brown and white coat.",
+        "It has distinct features typical of Boxers, such as a square head, short square muzzle, and erect ears.",
+        "The dog's body shape, leg shape, paw size, and overall appearance align with the characteristics of the Boxer breed.",
+        "The coat color is brown and white, the coat texture smooth, and the overall body shape is muscular.",
+        "Features like facial wrinkles, short tail, and square paws further suggest the dog belongs to the Boxer breed."
+    ]
+}
+
+END==============================
+
+==============================
+		inferring [18] for Shiba Inu_18 used tokens = 21706
+==============================
+Raw----
+Summary: The dog in the photo has a spherical body shape and is of medium size. It has a small spherical head with facial wrinkles resembling those of a Shiba Inu. The dog has short neck and leg length with slender legs and thin paw size. Its paw shape is splayed with square toes, and it has a stubby tail pointing up. The coat color is brown and white with short, smooth fur, and the overall appearance is muscular with breed-specific markings like a Shiba Inu, such as a white nose and a white chest.
+            
+            Three possible dog breed names: Shiba Inu, Pug, Bulldog
+            
+            Output JSON: 
+            {
+                    "Shiba Inu, Pug, Bulldog": [
+                        "The dog in the photo has a spherical body shape and is of medium size.",
+                        "It has a small spherical head with facial wrinkles resembling those of a Shiba Inu.",
+                        "The dog has short neck and leg length with slender legs and thin paw size.",
+                        "Its paw shape is splayed with square toes, and it has a stubby tail pointing up.",
+                        "The coat color is brown and white with short, smooth fur, and the overall appearance is muscular with breed-specific markings like a Shiba Inu, such as a white nose and a white chest."
+                    ]
+            }
+
+Trimed----
+19it [01:17,  3.42s/it]20it [01:19,  3.12s/it]21it [01:23,  3.18s/it]{
+                    "Shiba Inu, Pug, Bulldog": [
+                        "The dog in the photo has a spherical body shape and is of medium size.",
+                        "It has a small spherical head with facial wrinkles resembling those of a Shiba Inu.",
+                        "The dog has short neck and leg length with slender legs and thin paw size.",
+                        "Its paw shape is splayed with square toes, and it has a stubby tail pointing up.",
+                        "The coat color is brown and white with short, smooth fur, and the overall appearance is muscular with breed-specific markings like a Shiba Inu, such as a white nose and a white chest."
+                    ]
+            }
+
+END==============================
+
+==============================
+		inferring [19] for Shiba Inu_19 used tokens = 22694
+==============================
+Raw----
+Summary: The dog in the photo is medium-sized with a slender body, a large head, and short legs. It has a snub nose, short tail tucked under, and a muscular overall appearance. The coat is short, smooth, brown with white markings on the chest and tummy. The facial features include facial wrinkles like a Shiba Inu, a snout, and erect ears.
+            
+            Three possible dog breed names: Shiba Inu, Samoyed, Boxer
+            
+            Output JSON: 
+            {
+                "Shiba Inu, Samoyed, Boxer": [
+                    "The dog in the photo is medium-sized with a slender body, a large head, and short legs.",
+                    "It has a snub nose, short tail tucked under, and a muscular overall appearance.",
+                    "The coat is short, smooth, brown with white markings on the chest and tummy.",
+                    "The facial features include facial wrinkles like a Shiba Inu, a snout, and erect ears.",
+                    "Overall, the dog exhibits a mix of characteristics that could be attributed to the Shiba Inu, Samoyed, and Boxer breeds."
+                ]
+            }
+
+Trimed----
+{
+                "Shiba Inu, Samoyed, Boxer": [
+                    "The dog in the photo is medium-sized with a slender body, a large head, and short legs.",
+                    "It has a snub nose, short tail tucked under, and a muscular overall appearance.",
+                    "The coat is short, smooth, brown with white markings on the chest and tummy.",
+                    "The facial features include facial wrinkles like a Shiba Inu, a snout, and erect ears.",
+                    "Overall, the dog exhibits a mix of characteristics that could be attributed to the Shiba Inu, Samoyed, and Boxer breeds."
+                ]
+            }
+
+END==============================
+
+==============================
+		inferring [20] for Shiba Inu_20 used tokens = 23675
+==============================
+Raw----
+Summary: The dog in the photo is large with a spherical body shape and a large head. It has a short neck and legs, with slender and thin legs and large paws. The dog's coat is brown and black in color, short in length, smooth in texture, and with a dense fur texture. It has a square muzzle, short snout, and a snub nose, along with round brown eyes and erect ears. The overall appearance of the dog is fluffy, with breed-specific markings of a brown and black coat.
+            
+            Three possible dog breed names: Shiba Inu, Shih Tzu, Boxer
+            
+            Output JSON: 
+            {
+                "Shiba Inu, Shih Tzu, Boxer": [
+                    "The dog in the photo is large with a spherical body shape and a large head.",
+                    "It has a short neck and legs, with slender and thin legs and large paws.",
+                    "The dog's coat is brown and black in color, short in length, smooth in texture, and with a dense fur texture.",
+                    "It has a square muzzle, short snout, and a snub nose, along with round brown eyes and erect ears.",
+                    "The overall appearance of the dog is fluffy, with breed-specific markings of a brown and black coat."
+                ]
+            }
+
+Trimed----
+{
+                "Shiba Inu, Shih Tzu, Boxer": [
+                    "The dog in the photo is large with a spherical body shape and a large head.",
+                    "It has a short neck and legs, with slender and thin legs and large paws.",
+                    "The dog's coat is brown and black in color, short in length, smooth in texture, and with a dense fur texture.",
+                    "It has a square muzzle, short snout, and a snub nose, along with round brown eyes and erect ears.",
+                    "The overall appearance of the dog is fluffy, with breed-specific markings of a brown and black coat."
+                ]
+            }
+
+END==============================
+
+==============================
+		inferring [21] for Maine Coon_21 used tokens = 25231
+==============================
+Raw----
+General Description: ```A fluffy cat laying on the floor with a ball```
+
+Attributes List:
+- `body shape`: `long and slender`
+- `body size`: `large`
+- `head shape`: `a spherical head`
+- `head size`: `large`
+- `facial wrinkles`: `he has a squinty look`
+- `neck length`: `long neck`
+- `leg length`: `long`
+- `leg shape`: `a slender leg`
+- `leg thickness`: `thick`
+- `paw size`: `paw size of cat in photo is medium`
+- `paw shape`: `paw shape of cat in this photo is a paw shape of cat in this photo`
+- `toe shape`: `a splayed toe`
+- `tail shape`: `a slender, slender, slender tail`
+- `tail length`: `long tail`
+- `tail position`: `tucked under the cat's body`
+- `coat color`: `orange`
+- `coat length`: `long-haired`
+- `coat texture`: `fluffy`
+- `coat pattern`: `long-haired`
+- `fur texture`: `fluffy`
+- `fur length/density`: `long, dense, and fluffy`
+- `eye shape`: `round eyes`
+- `eye color`: `brown`
+- `ear position`: `ear position is ear position is ear position is ear position is ear position`
+- `ear shape`: `ear shape is erect`
+- `muzzle shape`: `a snout`
+- `snout length`: `snout length is medium`
+- `nose shape`: `a snout`
+- `nose color`: `brown`
+- `overall body shape and proportion`: `long and slender with a long tail`
+- `breed-specific markings or patterns (e.g. spots, stripes, patches)`: `a long-haired cat with a yellow ball`
+- `overall appearance (e.g. sleek, fluffy, muscular)`: `fluffy`
+- `facial markings`: `a cat with a tan nose and a white chin`
+- `body markings`: `a long-haired cat with a yellow ball`
+- `whisker length`: `long whiskers`
+- `whisker shape`: `a tipped whisker`
+- `claw length`: `long claws`
+- `claw shape`: `a slender claw`
+
+Summary: The cat in the photo is a large, long and slender cat with a fluffy, orange coat. It has round brown eyes and long whiskers with a squinty look. The cat has a long tail that is tucked under its body, and it displays a playful demeanor with a ball. Its overall appearance is fluffy and it has a snout shape with medium snout length.
+
+Three possible cat breed names: Maine Coon, Norwegian Forest Cat, Siberian
+
+Output JSON:
+```json
+{
+    "Maine Coon, Norwegian Forest Cat, Siberian": [
+        "The cat in the photo has a large, long and slender body with a fluffy, orange coat.",
+        "It possesses round brown eyes and long whiskers, giving it a squinty look.",
+        "The cat has a long tail that is tucked under its body and is seen playing with a yellow ball.",
+        "Its overall appearance is fluffy, and it has a snout shape with medium snout length.",
+        "The breed-specific markings include a cat with a tan nose and a white chin, resembling Maine Coon, Norwegian Forest Cat, or Siberian breeds."
+    ]
+}
+```
+
+Trimed----
+22it [01:32,  4.90s/it]23it [01:35,  4.31s/it]24it [01:40,  4.49s/it]25it [01:44,  4.42s/it]{```json
+{
+    "Maine Coon, Norwegian Forest Cat, Siberian": [
+        "The cat in the photo has a large, long and slender body with a fluffy, orange coat.",
+        "It possesses round brown eyes and long whiskers, giving it a squinty look.",
+        "The cat has a long tail that is tucked under its body and is seen playing with a yellow ball.",
+        "Its overall appearance is fluffy, and it has a snout shape with medium snout length.",
+        "The breed-specific markings include a cat with a tan nose and a white chin, resembling Maine Coon, Norwegian Forest Cat, or Siberian breeds."
+    ]
+}
+```}
+
+END==============================
+
+==============================
+		inferring [22] for Maine Coon_22 used tokens = 26231
+==============================
+Raw----
+Summary:
+The cat in the photo is depicted as having a large and long, slender body with a round head and a long, thick tail pointing down. It has long legs, large paws with round shapes, and round toes. The cat's coat is fluffy, long, and has a gray and white coloration with a curly pattern. It also possesses blue round eyes, erect ears pointing forward, and distinctive facial markings like a white nose.
+
+Three possible cat breed names:
+1. Maine Coon
+2. Ragdoll
+3. Siberian
+
+Output JSON:
+{
+    "Maine Coon, Ragdoll, Siberian": [
+        "The cat in the photo has a large and long, slender body with a round head and a long, thick tail pointing down.",
+        "It has long legs, large paws with round shapes, and round toes.",
+        "The cat's coat is fluffy, long, and has a gray and white coloration with a curly pattern.",
+        "It also possesses blue round eyes, erect ears pointing forward, and distinctive facial markings like a white nose.",
+        "The cat exhibits characteristics that are typical of Maine Coon, Ragdoll, and Siberian breeds."
+    ]
+}
+
+Trimed----
+{
+    "Maine Coon, Ragdoll, Siberian": [
+        "The cat in the photo has a large and long, slender body with a round head and a long, thick tail pointing down.",
+        "It has long legs, large paws with round shapes, and round toes.",
+        "The cat's coat is fluffy, long, and has a gray and white coloration with a curly pattern.",
+        "It also possesses blue round eyes, erect ears pointing forward, and distinctive facial markings like a white nose.",
+        "The cat exhibits characteristics that are typical of Maine Coon, Ragdoll, and Siberian breeds."
+    ]
+}
+
+END==============================
+
+==============================
+		inferring [23] for Maine Coon_23 used tokens = 27554
+==============================
+Raw----
+General Description: A cat with long hair and a yellow eye.
+
+Attributes List:
+- Body shape: Long and slender
+- Body size: Large
+- Head shape: A round head
+- Head size: Large
+- Facial wrinkles: A cat with a long, fluffy tail
+- Neck length: Long
+- Leg length: Short
+- Leg shape: Slender
+- Leg thickness: Thick
+- Paw size: Large
+- Paw shape: Paws are round
+- Toe shape: A cat with a long tail
+- Tail shape: A stubby tail
+- Tail length: Long tail
+- Tail position: The tail is tucked
+- Coat color: Gray and white
+- Coat length: Long hair
+- Coat texture: Fluffy
+- Coat pattern: Long and fluffy
+- Fur texture: Fluffy
+- Fur length/density: Long and dense
+- Eye shape: Round eyes
+- Eye color: Green
+- Ear position: The cat's ears are pinned back
+- Ear shape: Erect
+- Muzzle shape: Snout
+- Snout length: Short
+- Nose shape: A snout
+- Nose color: Black
+- Overall body shape and proportion: Long and slender
+- Breed-specific markings or patterns: A long-haired cat with a white nose
+- Overall appearance: Fluffy
+- Facial markings: A cat with a white nose and a black mouth
+- Body markings: A long-haired cat with a white chest
+- Whisker length: Long whiskers
+- Whisker shape: A tipped whisker
+- Claw length: Long and sharp
+- Claw shape: Claws are curved
+
+Summary: The cat in the photo is a large, long-haired cat with a fluffy and dense gray and white coat, a stubby tail, and a yellow eye. It has a round head, short legs, and long whiskers.
+
+Three possible cat breed names: Maine Coon, Norwegian Forest Cat, Siberian Cat
+
+Output JSON:
+{
+    "Maine Coon, Norwegian Forest Cat, Siberian Cat": [
+        "The cat in the photo is a large, long-haired cat with a fluffy and dense gray and white coat, a stubby tail, and a yellow eye.",
+        "It has a round head, short legs, and long whiskers.",
+        "The cat's overall appearance is fluffy with specific markings like a white nose and a white chest.",
+        "Its body shape is long and slender, and it has a snout, round eyes, and pinned-back ears.",
+        "The cat's whiskers are long, and its claws are curved and sharp."
+    ]
+}
+
+Trimed----
+{
+    "Maine Coon, Norwegian Forest Cat, Siberian Cat": [
+        "The cat in the photo is a large, long-haired cat with a fluffy and dense gray and white coat, a stubby tail, and a yellow eye.",
+        "It has a round head, short legs, and long whiskers.",
+        "The cat's overall appearance is fluffy with specific markings like a white nose and a white chest.",
+        "Its body shape is long and slender, and it has a snout, round eyes, and pinned-back ears.",
+        "The cat's whiskers are long, and its claws are curved and sharp."
+    ]
+}
+
+END==============================
+
+==============================
+		inferring [24] for Saint Bernard_24 used tokens = 28592
+==============================
+Raw----
+Summary: The photo shows a large, muscular dog with a long body, thick legs, and a short tail standing in the snow. The dog has a St. Bernard head shape and size, with distinctive facial wrinkles, a long neck, and large paws. Its coat is short, smooth, white with brown markings and dense fur. The dog has brown eyes, a black nose, and a white muzzle, chest, belly, and legs.
+
+            Three possible dog breed names: St. Bernard, Greater Swiss Mountain Dog, Bernese Mountain Dog
+
+            Output JSON:
+            {
+                    "St. Bernard, Greater Swiss Mountain Dog, Bernese Mountain Dog": [
+                            "The photo shows a large, muscular dog with a long body, thick legs, and a short tail standing in the snow.",
+                            "The dog has a St. Bernard head shape and size, with distinctive facial wrinkles, a long neck, and large paws.",
+                            "Its coat is short, smooth, white with brown markings and dense fur.",
+                            "The dog has brown eyes, a black nose, and a white muzzle, chest, belly, and legs.",
+                            "Overall, the dog has a majestic appearance with a mix of white and brown coloration."
+                    ]
+            }
+
+Trimed----
+{
+                    "St. Bernard, Greater Swiss Mountain Dog, Bernese Mountain Dog": [
+                            "The photo shows a large, muscular dog with a long body, thick legs, and a short tail standing in the snow.",
+                            "The dog has a St. Bernard head shape and size, with distinctive facial wrinkles, a long neck, and large paws.",
+                            "Its coat is short, smooth, white with brown markings and dense fur.",
+                            "The dog has brown eyes, a black nose, and a white muzzle, chest, belly, and legs.",
+                            "Overall, the dog has a majestic appearance with a mix of white and brown coloration."
+                    ]
+            }
+
+END==============================
+
+==============================
+		inferring [25] for Saint Bernard_25 used tokens = 29821
+==============================
+Raw----
+26it [01:48,  4.37s/it]27it [01:52,  4.15s/it]28it [01:54,  3.64s/it]General Description: Two dogs are sitting on the floor
+
+Attributes List:
+- Body shape: a St. Bernard
+- Body size: large
+- Head shape: St. Bernard
+- Head size: large
+- Facial wrinkles: St. Bernard
+- Neck length: short neck
+- Leg length: short
+- Leg shape: St. Bernard
+- Leg thickness: thick
+- Paw size: large
+- Paw shape: square paws
+- Toe shape: square toes
+- Tail shape: a St. Bernard
+- Tail length: short tail
+- Tail position: the dog is wagging its tail
+- Coat color: brown and white
+- Coat length: short
+- Coat texture: smooth
+- Coat pattern: a St. Bernard
+- Fur texture: soft
+- Fur length/density: short and dense
+- Eye shape: round
+- Eye color: brown
+- Ear position: the dog has its ears up
+- Ear shape: erect
+- Muzzle shape: square muzzle
+- Snout length: short
+- Nose shape: snub nose
+- Nose color: brown
+- Overall body shape and proportion: the dog is a large breed
+- Breed-specific markings or patterns (e.g. spots, stripes, patches): the dog is a St. Bernard
+- Overall appearance (e.g. sleek, fluffy, muscular): muscular
+- Facial markings: white on the nose
+- Body markings: brown and white
+
+Summary: The dog in the photo is a large St. Bernard with a muscular build, short neck, short legs, and a short tail. It has brown and white coat color with a smooth texture and dense fur. The dog has a square muzzle, erect ears, and round brown eyes. The overall appearance of the dog is indicative of the St. Bernard breed.
+
+Three possible dog breed names: Saint Bernard, Bernese Mountain Dog, Greater Swiss Mountain Dog
+
+Output JSON: 
+```json
+{
+    "Saint Bernard, Bernese Mountain Dog, Greater Swiss Mountain Dog": [
+        "The dog in the photo is a large St. Bernard with a muscular build, short neck, short legs, and a short tail.",
+        "It has brown and white coat color with a smooth texture and dense fur.",
+        "The dog has a square muzzle, erect ears, and round brown eyes.",
+        "The overall appearance of the dog is indicative of the St. Bernard breed.",
+        "The dog shows characteristics similar to Bernese Mountain Dogs and Greater Swiss Mountain Dogs as well."
+    ]
+}
+```
+
+Trimed----
+{```json
+{
+    "Saint Bernard, Bernese Mountain Dog, Greater Swiss Mountain Dog": [
+        "The dog in the photo is a large St. Bernard with a muscular build, short neck, short legs, and a short tail.",
+        "It has brown and white coat color with a smooth texture and dense fur.",
+        "The dog has a square muzzle, erect ears, and round brown eyes.",
+        "The overall appearance of the dog is indicative of the St. Bernard breed.",
+        "The dog shows characteristics similar to Bernese Mountain Dogs and Greater Swiss Mountain Dogs as well."
+    ]
+}
+```}
+
+END==============================
+
+==============================
+		inferring [26] for Saint Bernard_26 used tokens = 30950
+==============================
+Raw----
+General Description: A dog is standing in a bucket of water
+
+Attributes List:
+- body shape: a St. Bernard
+- body size: large
+- head shape: square
+- head size: large
+- facial wrinkles: St. Bernard
+- neck length: short
+- leg length: short
+- leg shape: St. Bernard
+- leg thickness: thick
+- paw size: large
+- paw shape: square paws
+- toe shape: square toes
+- tail shape: a stubby tail
+- tail length: short tail
+- tail position: pointing up
+- coat color: brown and white
+- coat length: short
+- coat texture: smooth
+- coat pattern: a St. Bernard
+- fur texture: smooth
+- fur length/fur density: short and dense
+- eye shape: round
+- eye color: brown
+- ear position: ear is up
+- ear shape: erect
+- muzzle shape: square
+- snout length: short
+- nose shape: snub nose
+- nose color: brown
+- overall body shape and proportion: a large dog
+- breed-specific markings or patterns: brown and white
+- overall appearance: muscular
+- facial markings: white nose
+- body markings: brown and white
+
+Summary: The dog standing in the bucket of water is a large St. Bernard with a square head and short, thick legs. It has a muscular body with a brown and white coat that is short and dense. The dog has a stubby tail pointing up, square paws, and round brown eyes.
+
+Three possible dog breed names: St. Bernard, Greater Swiss Mountain Dog, Bernese Mountain Dog
+
+Output JSON:
+```json
+{
+    "St. Bernard, Greater Swiss Mountain Dog, Bernese Mountain Dog": [
+        "The dog standing in the bucket of water is a large St. Bernard with a square head and short, thick legs.",
+        "It has a muscular body with a brown and white coat that is short and dense.",
+        "The dog has a stubby tail pointing up, square paws, and round brown eyes."
+    ]
+}
+```
+
+Trimed----
+{```json
+{
+    "St. Bernard, Greater Swiss Mountain Dog, Bernese Mountain Dog": [
+        "The dog standing in the bucket of water is a large St. Bernard with a square head and short, thick legs.",
+        "It has a muscular body with a brown and white coat that is short and dense.",
+        "The dog has a stubby tail pointing up, square paws, and round brown eyes."
+    ]
+}
+```}
+
+END==============================
+
+==============================
+		inferring [27] for German Shorthaired_27 used tokens = 31873
+==============================
+Raw----
+Summary: The dog in the photo is medium-sized with a spherical body and head shape. It has a short neck, short legs with thin straight legs, and small, round paws. The coat is short, smooth, white and black with markings resembling a dalmatian. The tail is short and tucked under the dog. The dog has a soft fur texture with a short and dense fur length.
+
+Three possible dog breed names: Dalmatian, Bulldog, Boston Terrier
+
+Output JSON:
+{
+    "Dalmatian, Bulldog, Boston Terrier": [
+        "The dog in the photo has a medium size and a spherical body and head shape.",
+        "Its coat is short, smooth, and white with black markings resembling a dalmatian.",
+        "The dog has short legs with thin and straight legs, small round paws, and a short, tucked tail.",
+        "Its fur texture is soft with a short and dense fur length.",
+        "The overall appearance of the dog is sleek with white and black markings on the body and face."
+    ]
+}
+
+Trimed----
+{
+    "Dalmatian, Bulldog, Boston Terrier": [
+        "The dog in the photo has a medium size and a spherical body and head shape.",
+        "Its coat is short, smooth, and white with black markings resembling a dalmatian.",
+        "The dog has short legs with thin and straight legs, small round paws, and a short, tucked tail.",
+        "Its fur texture is soft with a short and dense fur length.",
+        "The overall appearance of the dog is sleek with white and black markings on the body and face."
+    ]
+}
+
+END==============================
+
+==============================
+		inferring [28] for German Shorthaired_28 used tokens = 33140
+==============================
+Raw----
+29it [01:59,  4.00s/it]30it [02:05,  4.64s/it]General Description: a dog is sitting on a carpeted floor
+    
+            Attributes List:
+            - body shape: a dog with a long body
+            - body size: medium
+            - head shape: a pointer
+            - head size: small
+            - facial wrinkles: a dog with a red collar
+            - neck length: short
+            - leg length: short
+            - leg shape: straight
+            - leg thickness: thin
+            - paw size: small
+            - paw shape: square paws
+            - toe shape: square toes
+            - tail shape: a stub tail
+            - tail length: short tail
+            - tail position: tucked under the body
+            - coat color: brown and white
+            - coat length: short
+            - coat texture: smooth
+            - coat pattern: pointer
+            - fur texture: smooth
+            - fur lengthfur density: short and dense
+            - eye shape: round
+            - eye color: brown
+            - ear position: the dog's ears are up
+            - ear shape: pointy
+            - muzzle shape: square muzzle
+            - snout length: short
+            - nose shape: snub nose
+            - nose color: brown
+            - overall body shape and proportion: short and squarish
+            - breed-specific markings or patterns (e.g. spots, stripes, patches): a dog with a red collar
+            - overall appearance (e.g. sleek, fluffy, muscular): fluffy
+            - facial markings: white nose and eyes
+            - body markings: white and brown
+
+            Summary: The dog in the photo is a medium-sized dog with a long body and short legs. It has a small head with a pointer shape, short tail, and brown and white coat color. The dog's coat is short, smooth, and dense, and it has a red collar. Its facial features include a round eye shape, pointy ears, square muzzle, and a snub nose. The overall appearance is fluffy with white and brown body markings.
+
+            Three possible dog breed names: Pointer, Dachshund, Beagle
+
+            Output JSON: {
+                    "Pointer, Dachshund, Beagle": [
+                            "The dog in the photo is a medium-sized dog with a long body and short legs.",
+                            "It has a small head with a pointer shape, short tail, and brown and white coat color.",
+                            "The dog's coat is short, smooth, and dense, and it has a red collar.",
+                            "Its facial features include a round eye shape, pointy ears, square muzzle, and a snub nose.",
+                            "The overall appearance is fluffy with white and brown body markings."
+                    ]
+            }
+
+Trimed----
+{
+                    "Pointer, Dachshund, Beagle": [
+                            "The dog in the photo is a medium-sized dog with a long body and short legs.",
+                            "It has a small head with a pointer shape, short tail, and brown and white coat color.",
+                            "The dog's coat is short, smooth, and dense, and it has a red collar.",
+                            "Its facial features include a round eye shape, pointy ears, square muzzle, and a snub nose.",
+                            "The overall appearance is fluffy with white and brown body markings."
+                    ]
+            }
+
+END==============================
+
+==============================
+		inferring [29] for German Shorthaired_29 used tokens = 34416
+==============================
+Raw----
+General Description: A dog is standing on a kitchen floor with a toy in its mouth
+
+Attributes List:
+- Body Shape: A dog with a long body
+- Body Size: Medium
+- Head Shape: A pointer
+- Head Size: Large
+- Facial Wrinkles: A dog with wrinkles
+- Neck Length: Short neck
+- Leg Length: Short
+- Leg Shape: Straight
+- Leg Thickness: Thin
+- Paw Size: Large
+- Paw Shape: Paw shape is round
+- Toe Shape: Square toes
+- Tail Shape: A stub tail
+- Tail Length: Short tail
+- Tail Position: Pointing to the left
+- Coat Color: Black and white
+- Coat Length: Short
+- Coat Texture: Smooth
+- Coat Pattern: A black and white dog
+- Fur Texture: Smooth
+- Fur Length/Density: Short and dense
+- Eye Shape: Round
+- Eye Color: Brown
+- Ear Position: Ear position is up
+- Ear Shape: Pointy
+- Muzzle Shape: Square
+- Snout Length: Short
+- Nose Shape: Snub nose
+- Nose Color: Black
+- Overall Body Shape and Proportion: A dog with a long body and a short tail
+- Breed-Specific Markings or Patterns: A black and white dog with a red toy in its mouth
+- Overall Appearance: Sleek
+- Facial Markings: Black and white
+- Body Markings: Black and white
+
+Summary: The dog in the photo is medium-sized with a long body, a large pointed head, and wrinkled face. It has short legs, square paws, and a stub tail pointing to the left. The dog's coat is black and white, short, and smooth, with dense fur. Its eyes are round and brown, ears are up and pointy, and it has a square muzzle with a short snout and a black nose. The overall appearance is sleek with black and white markings.
+
+Three possible dog breed names: Pointer, Dalmatian, Boston Terrier
+
+Output JSON:
+```json
+{
+    "Pointer, Dalmatian, Boston Terrier": [
+        "The dog in the photo is medium-sized with a long body, a large pointed head, and wrinkled face.",
+        "It has short legs, square paws, and a stub tail pointing to the left.",
+        "The dog's coat is black and white, short, and smooth, with dense fur.",
+        "Its eyes are round and brown, ears are up and pointy, and it has a square muzzle with a short snout and a black nose.",
+        "The overall appearance is sleek with black and white markings."
+    ]
+}
+```
+
+Trimed----
+{```json
+{
+    "Pointer, Dalmatian, Boston Terrier": [
+        "The dog in the photo is medium-sized with a long body, a large pointed head, and wrinkled face.",
+        "It has short legs, square paws, and a stub tail pointing to the left.",
+        "The dog's coat is black and white, short, and smooth, with dense fur.",
+        "Its eyes are round and brown, ears are up and pointy, and it has a square muzzle with a short snout and a black nose.",
+        "The overall appearance is sleek with black and white markings."
+    ]
+}
+```}
+
+END==============================
+
+==============================
+		inferring [30] for Japanese Chin_30 used tokens = 35630
+==============================
+Raw----
+31it [02:10,  4.68s/it]32it [02:13,  4.15s/it]33it [02:16,  3.96s/it]General Description: a small black and white dog is sitting in the grass
+
+Attributes List:
+- body shape: a small dog
+- body size: small
+- head shape: a chihuahua
+- head size: small
+- facial wrinkles: chin wrinkles
+- neck length: short
+- leg length: short
+- leg shape: slender
+- leg thickness: thin
+- paw size: small
+- paw shape: round
+- toe shape: a chihuahua
+- tail shape: a chihuahua
+- tail length: short tail
+- tail position: wagging
+- coat color: black and white
+- coat length: short
+- coat texture: smooth
+- coat pattern: a chihuahua
+- fur texture: smooth
+- fur lengthfur density: short and dense
+- eye shape: round
+- eye color: brown
+- ear position: ear is up
+- ear shape: erect
+- muzzle shape: snub nose
+- snout length: short
+- nose shape: snub nose
+- nose color: black
+- overall body shape and proportion: a small dog with a long body and short legs
+- breed-specific markings or patterns (e.g. spots, stripes, patches): black and white
+- overall appearance (e.g. sleek, fluffy, muscular): sleek
+- facial markings: black and white
+- body markings: black and white
+
+Summary: The small black and white dog in the photo has a chihuahua head shape and short legs, with a sleek appearance and a short, dense coat. Its tail is short and wagging, and it exhibits chin wrinkles and erect ears. The dog's overall body shape is small and elongated.
+
+Three possible dog breed names: Chihuahua, Dalmatian, Boston Terrier
+
+Output JSON:
+{
+    "Chihuahua, Dalmatian, Boston Terrier": [
+        "The small black and white dog in the photo has a chihuahua head shape and short legs, with a sleek appearance and a short, dense coat.",
+        "Its tail is short and wagging, and it exhibits chin wrinkles and erect ears.",
+        "The dog's overall body shape is small and elongated.",
+        "The coat color is black and white, with round brown eyes and a snub nose.",
+        "The body markings and facial markings are in black and white patterns."
+    ]
+}
+
+Trimed----
+{
+    "Chihuahua, Dalmatian, Boston Terrier": [
+        "The small black and white dog in the photo has a chihuahua head shape and short legs, with a sleek appearance and a short, dense coat.",
+        "Its tail is short and wagging, and it exhibits chin wrinkles and erect ears.",
+        "The dog's overall body shape is small and elongated.",
+        "The coat color is black and white, with round brown eyes and a snub nose.",
+        "The body markings and facial markings are in black and white patterns."
+    ]
+}
+
+END==============================
+
+==============================
+		inferring [31] for Japanese Chin_31 used tokens = 36654
+==============================
+Raw----
+Summary: The photo depicts a small dog with Chihuahua-like features, such as a small head and body size, short neck and legs, slender legs with thin paws, small round paws, square toes, a short tail tucked under the dog, a smooth and short white and brown coat, soft and dense fur, round brown eyes, erect ears, a square muzzle with a short snout, a snub nose with a black color, and a short and squarish overall body shape. The dog also exhibits breed-specific markings of white and black patches, a fluffy appearance, and a combination of white and black marking on its face and body.
+
+            Three possible dog breed names: Chihuahua, Pomeranian, Shih Tzu
+            
+            Output JSON object:
+            {
+                    "Chihuahua, Pomeranian, Shih Tzu": [
+                        "The photo depicts a small dog with Chihuahua-like features, such as a small head and body size, short neck and legs, slender legs with thin paws, small round paws, square toes, a short tail tucked under the dog, a smooth and short white and brown coat, soft and dense fur, round brown eyes, erect ears, a square muzzle with a short snout, a snub nose with a black color, and a short and squarish overall body shape.",
+                        "The dog also exhibits breed-specific markings of white and black patches, a fluffy appearance, and a combination of white and black marking on its face and body."
+                    ]
+            }
+
+Trimed----
+{Summary: The photo depicts a small dog with Chihuahua-like features, such as a small head and body size, short neck and legs, slender legs with thin paws, small round paws, square toes, a short tail tucked under the dog, a smooth and short white and brown coat, soft and dense fur, round brown eyes, erect ears, a square muzzle with a short snout, a snub nose with a black color, and a short and squarish overall body shape. The dog also exhibits breed-specific markings of white and black patches, a fluffy appearance, and a combination of white and black marking on its face and body.
+
+            Three possible dog breed names: Chihuahua, Pomeranian, Shih Tzu
+            
+            Output JSON object:
+            {
+                    "Chihuahua, Pomeranian, Shih Tzu": [
+                        "The photo depicts a small dog with Chihuahua-like features, such as a small head and body size, short neck and legs, slender legs with thin paws, small round paws, square toes, a short tail tucked under the dog, a smooth and short white and brown coat, soft and dense fur, round brown eyes, erect ears, a square muzzle with a short snout, a snub nose with a black color, and a short and squarish overall body shape.",
+                        "The dog also exhibits breed-specific markings of white and black patches, a fluffy appearance, and a combination of white and black marking on its face and body."
+                    ]
+            }
+
+END==============================
+
+==============================
+		inferring [32] for Japanese Chin_32 used tokens = 37676
+==============================
+Raw----
+Summary: The dog in the photo is a small Chihuahua with a short and dense coat that is white and brown in color. It has a fluffy appearance with facial markings of white on the nose and chest. The dog has a chihuahua head shape, small body size, short legs, and a wagging tail. Its coat is smooth and silky, with a coat pattern typical of a Chihuahua.
+            
+            Three possible dog breed names: Chihuahua, Short-haired Chihuahua, Smooth Coat Chihuahua
+            
+            Output JSON: 
+            {
+                    "Chihuahua, Short-haired Chihuahua, Smooth Coat Chihuahua": [
+                            "The dog in the photo is a small Chihuahua with a short and dense coat that is white and brown in color.",
+                            "It has a fluffy appearance with facial markings of white on the nose and chest.",
+                            "The dog has a chihuahua head shape, small body size, short legs, and a wagging tail.",
+                            "Its coat is smooth and silky, with a coat pattern typical of a Chihuahua.",
+                            "The overall body shape is small with a long body and short legs."
+                    ]
+            }
+
+Trimed----
+{
+                    "Chihuahua, Short-haired Chihuahua, Smooth Coat Chihuahua": [
+                            "The dog in the photo is a small Chihuahua with a short and dense coat that is white and brown in color.",
+                            "It has a fluffy appearance with facial markings of white on the nose and chest.",
+                            "The dog has a chihuahua head shape, small body size, short legs, and a wagging tail.",
+                            "Its coat is smooth and silky, with a coat pattern typical of a Chihuahua.",
+                            "The overall body shape is small with a long body and short legs."
+                    ]
+            }
+
+END==============================
+
+==============================
+		inferring [33] for Sphynx_33 used tokens = 38710
+==============================
+Raw----
+34it [02:19,  3.47s/it]35it [02:24,  4.09s/it]36it [02:28,  4.09s/it]```
+Summary: The cat in the photo is a small sphynx cat with a large head, short neck, and short spherical legs with shaved thick fur and small paws. It has a stubby tail, white short hair coat with a sphynx pattern, blue eyes, and a short snout with a black nose. The overall appearance of the cat is sleek with breed-specific markings like a shaved head and sphynx features.
+
+Three possible cat breed names: Sphynx, Donskoy, Peterbald
+
+Output JSON: {
+    "Sphynx, Donskoy, Peterbald": [
+        "The cat in the photo is a small sphynx cat with a large head, short neck, and short spherical legs with shaved thick fur and small paws.",
+        "It has a stubby tail, white short hair coat with a sphynx pattern, blue eyes, and a short snout with a black nose.",
+        "The overall appearance of the cat is sleek with breed-specific markings like a shaved head and sphynx features."
+    ]
+}
+```
+
+Trimed----
+{
+    "Sphynx, Donskoy, Peterbald": [
+        "The cat in the photo is a small sphynx cat with a large head, short neck, and short spherical legs with shaved thick fur and small paws.",
+        "It has a stubby tail, white short hair coat with a sphynx pattern, blue eyes, and a short snout with a black nose.",
+        "The overall appearance of the cat is sleek with breed-specific markings like a shaved head and sphynx features."
+    ]
+}
+```}
+
+END==============================
+
+==============================
+		inferring [34] for Sphynx_34 used tokens = 40114
+==============================
+Raw----
+General Description: A sphynx cat laying on a blanket
+
+Attributes List:
+- Body shape: Sphynx cat
+- Body size: Small
+- Head shape: Sphynx cat
+- Head size: Large
+- Facial wrinkles: Sphynx cat with blue eyes
+- Neck length: Short neck
+- Leg length: Short
+- Leg shape: Spherical
+- Leg thickness: Sphynx cat with blue eyes
+- Paw size: Small
+- Paw shape: Sphynx cat
+- Toe shape: Splayed toes
+- Tail shape: Sphynx cat tail
+- Tail length: Short tail
+- Tail position: The cat is laying down
+- Coat color: Gray
+- Coat length: Short hair
+- Coat texture: Shaved
+- Coat pattern: Sphynx cat
+- Fur texture: Shaved
+- Fur length/density: Short hair
+- Eye shape: A cat with blue eyes
+- Eye color: Blue
+- Ear position: The cat's ears are tucked in
+- Ear shape: Spherical
+- Muzzle shape: Snub nose
+- Snout length: Snout length is medium
+- Nose shape: Sphynx cat
+- Nose color: Blue
+- Overall body shape and proportion: The cat has a long body with a short tail
+- Breed-specific markings or patterns (e.g. spots, stripes, patches): A sphynx cat with blue eyes
+- Overall appearance (e.g. sleek, fluffy, muscular): Sleek
+- Facial markings: A sphynx cat with blue eyes
+- Body markings: A sphynx cat with blue eyes
+- Whisker length: Short whiskers
+- Whisker shape: Sphynx cat
+- Claw length: Long claws
+- Claw shape: Sphynx cat claws
+
+Summary: The sphynx cat in the photo is small with a large head, short leg, and spherical-shaped paws. It has a short tail, gray coat, and blue eyes. The cat's body is sleek with a snub nose, tuck ears, and short whiskers.
+
+Three possible cat breed names: Sphynx, Scottish Fold, Russian Blue
+
+Output JSON:
+{
+    "Sphynx, Scottish Fold, Russian Blue": [
+        "The sphynx cat in the photo is small with a large head, short leg, and spherical-shaped paws.",
+        "It has a short tail, gray coat, and blue eyes.",
+        "The cat's body is sleek with a snub nose, tuck ears, and short whiskers.",
+        "The cat has a long body with a short tail, and its overall appearance is elegant and unique.",
+        "The sphynx cat is known for its distinctive appearance and friendly nature."
+    ]
+}
+
+Trimed----
+{
+    "Sphynx, Scottish Fold, Russian Blue": [
+        "The sphynx cat in the photo is small with a large head, short leg, and spherical-shaped paws.",
+        "It has a short tail, gray coat, and blue eyes.",
+        "The cat's body is sleek with a snub nose, tuck ears, and short whiskers.",
+        "The cat has a long body with a short tail, and its overall appearance is elegant and unique.",
+        "The sphynx cat is known for its distinctive appearance and friendly nature."
+    ]
+}
+
+END==============================
+
+==============================
+		inferring [35] for Sphynx_35 used tokens = 41449
+==============================
+Raw----
+General Description: A person is holding a cat while it is being groomed.
+
+Attributes List:
+- Body Shape: Spherical
+- Body Size: Small
+- Head Shape: A spherical head
+- Head Size: Small
+- Facial Wrinkles: A cat with a shaved head
+- Neck Length: Short neck
+- Leg Length: Short
+- Leg Shape: Spherical
+- Leg Thickness: Thin
+- Paw Size: Small
+- Paw Shape: Paws are round
+- Toe Shape: Splayed
+- Tail Shape: Spherical
+- Tail Length: Short tail
+- Tail Position: The cat is sitting
+- Coat Color: Gray and white
+- Coat Length: Short
+- Coat Texture: Shaved
+- Coat Pattern: Sphynx
+- Fur Texture: Shaved
+- Fur Length/Fur Density: Short and dense
+- Eye Shape: Round eyes
+- Eye Color: Green
+- Ear Position: The cat's ears are pointing forward
+- Ear Shape: Spherical
+- Muzzle Shape: Snout
+- Snout Length: Snout length is medium
+- Nose Shape: Snout is snout
+- Nose Color: Black
+- Overall Body Shape and Proportion: The cat is a Sphynx
+- Breed-Specific Markings or Patterns: The cat has a shaved head and a shaved tail
+- Overall Appearance: Sleek
+- Facial Markings: A cat with a shaved head
+- Body Markings: A Sphynx cat
+- Whisker Length: Short
+- Whisker Shape: Sphynx
+- Claw Length: Short
+- Claw Shape: Spherical
+
+Summary: The cat in the photo is a small, spherical Sphynx cat with a shaved head and tail, green round eyes, and a sleek appearance.
+
+Three possible cat breed names: Sphynx, Peterbald, Donskoy
+
+Output JSON:
+{
+    "Sphynx, Peterbald, Donskoy": [
+        "The cat in the photo is a small, spherical Sphynx cat with a shaved head and tail, green round eyes, and a sleek appearance.",
+        "The cat has a short tail, short legs, and a spherical body shape, typical of the Sphynx breed.",
+        "Its coat is short, dense, and shaved, with gray and white colors, giving it a unique appearance.",
+        "The cat's facial features include round eyes, a snout, and whiskers characteristic of the Sphynx breed.",
+        "Overall, the cat embodies the distinctive traits of the Sphynx, Peterbald, and Donskoy breeds."
+    ]
+}
+
+Trimed----
+{
+    "Sphynx, Peterbald, Donskoy": [
+        "The cat in the photo is a small, spherical Sphynx cat with a shaved head and tail, green round eyes, and a sleek appearance.",
+        "The cat has a short tail, short legs, and a spherical body shape, typical of the Sphynx breed.",
+        "Its coat is short, dense, and shaved, with gray and white colors, giving it a unique appearance.",
+        "The cat's facial features include round eyes, a snout, and whiskers characteristic of the Sphynx breed.",
+        "Overall, the cat embodies the distinctive traits of the Sphynx, Peterbald, and Donskoy breeds."
+    ]
+}
+
+END==============================
+
+==============================
+		inferring [36] for Ragdoll_36 used tokens = 42794
+==============================
+Raw----
+37it [02:33,  4.35s/it]38it [02:36,  3.82s/it]General Description: A cat is sitting on a table.
+
+Attributes List:
+- Body shape: Long and slender
+- Body size: Large
+- Head shape: A round head
+- Head size: Large
+- Facial wrinkles: A cat with long coat
+- Neck length: Long neck
+- Leg length: Short
+- Leg shape: Slender
+- Leg thickness: Thick
+- Paw size: Large
+- Paw shape: Paws are round
+- Toe shape: Rounded toes
+- Tail shape: A slender tail
+- Tail length: Long tail
+- Tail position: Pointing to the left
+- Coat color: White and gray
+- Coat length: Long hair
+- Coat texture: Fluffy
+- Coat pattern: Long and fluffy
+- Fur texture: Fluffy
+- Fur length/fur density: Long and dense
+- Eye shape: Round
+- Eye color: Blue
+- Ear position: Ear is pointing forward
+- Ear shape: Erect
+- Muzzle shape: Snout
+- Snout length: Short
+- Nose shape: Snub nose
+- Nose color: Black
+- Overall body shape and proportion: Long and slender
+- Breed-specific markings or patterns: White with blue eyes
+- Overall appearance: Fluffy
+- Facial markings: White with blue eyes
+- Body markings: White with black spots
+- Whisker length: Long whiskers
+- Whisker shape: A tipped whisker
+- Claw length: Long
+- Claw shape: Round claws
+
+Summary: The cat in the photo is a large, long-haired, fluffy cat with a round head, blue eyes, and a slender tail. It has a white and gray coat with white and black spots, long whiskers, and round claws.
+
+Three possible cat breed names: Ragdoll, Siberian, Turkish Angora
+
+Output JSON:
+{
+    "Ragdoll": [
+        "The cat is large with a long and fluffy coat.",
+        "It has a round head and blue eyes.",
+        "The tail is slender and long.",
+        "The coat color is white and gray with white and black spots.",
+        "The cat has long whiskers and round claws."
+    ],
+    "Siberian": [
+        "The cat has a large body with a long and dense fur texture.",
+        "Its coat is fluffy and comes in white and gray colors.",
+        "The tail is slender and long.",
+        "The cat has blue eyes and a round head.",
+        "It has white and black spots on its body."
+    ],
+    "Turkish Angora": [
+        "The cat's coat is long, fluffy, and white with gray patches.",
+        "It has blue eyes and a round head.",
+        "The tail is slender and long.",
+        "The cat has white and black spots on its body.",
+        "It features long whiskers and round claws."
+    ]
+}
+
+Trimed----
+{
+    "Ragdoll": [
+        "The cat is large with a long and fluffy coat.",
+        "It has a round head and blue eyes.",
+        "The tail is slender and long.",
+        "The coat color is white and gray with white and black spots.",
+        "The cat has long whiskers and round claws."
+    ],
+    "Siberian": [
+        "The cat has a large body with a long and dense fur texture.",
+        "Its coat is fluffy and comes in white and gray colors.",
+        "The tail is slender and long.",
+        "The cat has blue eyes and a round head.",
+        "It has white and black spots on its body."
+    ],
+    "Turkish Angora": [
+        "The cat's coat is long, fluffy, and white with gray patches.",
+        "It has blue eyes and a round head.",
+        "The tail is slender and long.",
+        "The cat has white and black spots on its body.",
+        "It features long whiskers and round claws."
+    ]
+}
+
+END==============================
+
+==============================
+		inferring [37] for Ragdoll_37 used tokens = 43810
+==============================
+Raw----
+Summary: The cat in the photo is small with a long, slender body, and has a round head with a short snout and short, erect ears. It has a fluffy, short coat with a tuxedo pattern of white and gray, and notable blue eyes. The cat's paw size is large with round paws, and it has a stubby, short tail pointing to the left. Its overall appearance is fluffy and it has a few brown spots on its white coat.
+
+Three possible cat breed names: British Shorthair, American Curl, Scottish Fold
+
+Output JSON:
+{
+    "British Shorthair, American Curl, Scottish Fold": [
+        "The cat in the photo has a small, slender body with a round head and short snout.",
+        "It features a fluffy, short coat with a tuxedo pattern of white and gray, and has blue eyes.",
+        "The cat's paw size is large with round paws, and it has a stubby, short tail pointing to the left.",
+        "Its overall appearance is fluffy with a few brown spots on its white coat.",
+        "The cat's ears are short and erect, adding to its adorable look."
+    ]
+}
+
+Trimed----
+{
+    "British Shorthair, American Curl, Scottish Fold": [
+        "The cat in the photo has a small, slender body with a round head and short snout.",
+        "It features a fluffy, short coat with a tuxedo pattern of white and gray, and has blue eyes.",
+        "The cat's paw size is large with round paws, and it has a stubby, short tail pointing to the left.",
+        "Its overall appearance is fluffy with a few brown spots on its white coat.",
+        "The cat's ears are short and erect, adding to its adorable look."
+    ]
+}
+
+END==============================
+
+==============================
+		inferring [38] for Ragdoll_38 used tokens = 45015
+==============================
+Raw----
+Summary: The cat in the photo appears to have a round body with a small body size, round head, and small head size. It has a short neck, short slender legs with thin and small paws. The cat's coat is white with a fluffy texture and a spotted pattern. It has round blue eyes and a short snout with a snub nose. Overall, the cat has a fluffy appearance with white fur and black markings.
+
+            Three possible cat breed names: 
+            1. Exotic Shorthair
+            2. Turkish Angora
+            3. British Shorthair
+
+            Output JSON: 
+            {
+                "Exotic Shorthair": [
+                    "The cat has a round body and small body size with a round head and small head size.",
+                    "It has short, slender legs with thin and small paws.",
+                    "The cat's coat is white with a fluffy texture and a spotted pattern.",
+                    "It has round blue eyes and a short snout with a snub nose.",
+                    "Overall, the cat has a fluffy appearance with white fur and black markings."
+                ],
+                "Turkish Angora": [
+                    "The cat in the photo is small-sized with a round body and head.",
+                    "It has short legs, thin paws, and a short, fluffy coat with a spotted pattern.",
+                    "The cat features round blue eyes, a short snout, and a snub nose.",
+                    "Its fluffy appearance includes white fur and black markings on the body.",
+                    "The cat's overall look suggests characteristics of a Turkish Angora breed."
+                ],
+                "British Shorthair": [
+                    "A cat with a small body size and round body, as well as a round head with small head size.",
+                    "It has short, slender legs with thin, small paws and a short, fluffy coat with a spotted pattern.",
+                    "The cat boasts round blue eyes, a short snout, and a snub nose.",
+                    "Its white fur and black markings give it a fluffy appearance similar to that of a British Shorthair.",
+                    "Overall, the cat shares similarities with the British Shorthair breed in its features."
+                ]
+            }
+
+Trimed----
+39it [02:41,  4.21s/it]40it [02:45,  4.25s/it]41it [02:51,  4.80s/it]{
+                "Exotic Shorthair": [
+                    "The cat has a round body and small body size with a round head and small head size.",
+                    "It has short, slender legs with thin and small paws.",
+                    "The cat's coat is white with a fluffy texture and a spotted pattern.",
+                    "It has round blue eyes and a short snout with a snub nose.",
+                    "Overall, the cat has a fluffy appearance with white fur and black markings."
+                ],
+                "Turkish Angora": [
+                    "The cat in the photo is small-sized with a round body and head.",
+                    "It has short legs, thin paws, and a short, fluffy coat with a spotted pattern.",
+                    "The cat features round blue eyes, a short snout, and a snub nose.",
+                    "Its fluffy appearance includes white fur and black markings on the body.",
+                    "The cat's overall look suggests characteristics of a Turkish Angora breed."
+                ],
+                "British Shorthair": [
+                    "A cat with a small body size and round body, as well as a round head with small head size.",
+                    "It has short, slender legs with thin, small paws and a short, fluffy coat with a spotted pattern.",
+                    "The cat boasts round blue eyes, a short snout, and a snub nose.",
+                    "Its white fur and black markings give it a fluffy appearance similar to that of a British Shorthair.",
+                    "Overall, the cat shares similarities with the British Shorthair breed in its features."
+                ]
+            }
+
+END==============================
+
+==============================
+		inferring [39] for Great Pyrenees_39 used tokens = 46085
+==============================
+Raw----
+```
+Summary: The dog in the photo is a large, fluffy white dog with a snub nose, short legs, and a stub tail. Its square paws and short, dense coat give it a fluffy appearance. The dog has brown round eyes, erect ears, and a square muzzle, with markings of white fur with black spots on its body and face. 
+
+Three possible dog breed names: 
+1. Samoyed
+2. Bulldog
+3. Bichon Frise
+
+Output JSON: 
+{
+    "Samoyed": [
+        "The dog in the photo is a large, fluffy white dog with a snub nose, short legs, and a stub tail.",
+        "Its square paws and short, dense coat give it a fluffy appearance.",
+        "The dog has brown round eyes, erect ears, and a square muzzle, with markings of white fur with black spots on its body and face."
+    ],
+    "Bulldog": [
+        "The dog in the photo is a large, fluffy white dog with a snub nose, short legs, and a stub tail.",
+        "Its square paws and short, dense coat give it a fluffy appearance.",
+        "The dog has brown round eyes, erect ears, and a square muzzle, with markings of white fur with black spots on its body and face."
+    ],
+    "Bichon Frise": [
+        "The dog in the photo is a large, fluffy white dog with a snub nose, short legs, and a stub tail.",
+        "Its square paws and short, dense coat give it a fluffy appearance.",
+        "The dog has brown round eyes, erect ears, and a square muzzle, with markings of white fur with black spots on its body and face."
+    ]
+}
+```
+
+Trimed----
+{
+    "Samoyed": [
+        "The dog in the photo is a large, fluffy white dog with a snub nose, short legs, and a stub tail.",
+        "Its square paws and short, dense coat give it a fluffy appearance.",
+        "The dog has brown round eyes, erect ears, and a square muzzle, with markings of white fur with black spots on its body and face."
+    ],
+    "Bulldog": [
+        "The dog in the photo is a large, fluffy white dog with a snub nose, short legs, and a stub tail.",
+        "Its square paws and short, dense coat give it a fluffy appearance.",
+        "The dog has brown round eyes, erect ears, and a square muzzle, with markings of white fur with black spots on its body and face."
+    ],
+    "Bichon Frise": [
+        "The dog in the photo is a large, fluffy white dog with a snub nose, short legs, and a stub tail.",
+        "Its square paws and short, dense coat give it a fluffy appearance.",
+        "The dog has brown round eyes, erect ears, and a square muzzle, with markings of white fur with black spots on its body and face."
+    ]
+}
+```}
+
+END==============================
+
+==============================
+		inferring [40] for Great Pyrenees_40 used tokens = 47266
+==============================
+Raw----
+General Description: a white dog sitting in the grass
+
+Attributes List:
+- Body Shape: a large dog
+- Body Size: large
+- Head Shape: a snout
+- Head Size: large
+- Facial Wrinkles: a lot of wrinkles
+- Neck Length: short
+- Leg Length: short
+- Leg Shape: slender
+- Leg Thickness: thick
+- Paw Size: large
+- Paw Shape: square paws
+- Toe Shape: square toes
+- Tail Shape: a stubby tail
+- Tail Length: short tail
+- Tail Position: tucked under
+- Coat Color: white
+- Coat Length: short
+- Coat Texture: fluffy
+- Coat Pattern: white
+- Fur Texture: fluffy
+- Fur Length/Density: short and dense
+- Eye Shape: round
+- Eye Color: brown
+- Ear Position: ear position is up
+- Ear Shape: erect
+- Muzzle Shape: square
+- Snout Length: short
+- Nose Shape: snub nose
+- Nose Color: black
+- Overall Body Shape and Proportion: large
+- Breed-specific Markings or Patterns: white with black spots
+- Overall Appearance: fluffy
+- Facial Markings: white with black nose
+- Body Markings: white with black spots
+
+Summary: The dog in the photo is a large, fluffy white dog with a lot of wrinkles and a short, square snout. It has short legs with thick, square paws and a stubby tail tucked under. The coat is short, dense, and fluffy, with white fur and black spot markings. Its erect ears and round brown eyes complement its friendly appearance.
+
+Three possible dog breed names: 
+1. Bulldog
+2. Samoyed
+3. Boxer
+
+Output JSON:
+{
+    "Bulldog, Samoyed, Boxer": [
+        "The dog in the photo is a large, fluffy white dog with a lot of wrinkles and a short, square snout.",
+        "It has short legs with thick, square paws and a stubby tail tucked under.",
+        "The coat is short, dense, and fluffy, with white fur and black spot markings.",
+        "Its erect ears and round brown eyes complement its friendly appearance.",
+        "The overall appearance gives the impression of a friendly and sturdy breed like Bulldog, Samoyed, or Boxer."
+    ]
+}
+
+Trimed----
+{
+    "Bulldog, Samoyed, Boxer": [
+        "The dog in the photo is a large, fluffy white dog with a lot of wrinkles and a short, square snout.",
+        "It has short legs with thick, square paws and a stubby tail tucked under.",
+        "The coat is short, dense, and fluffy, with white fur and black spot markings.",
+        "Its erect ears and round brown eyes complement its friendly appearance.",
+        "The overall appearance gives the impression of a friendly and sturdy breed like Bulldog, Samoyed, or Boxer."
+    ]
+}
+
+END==============================
+
+==============================
+		inferring [41] for Great Pyrenees_41 used tokens = 48188
+==============================
+Raw----
+Summary: The dog in the photo is a large white fluffly dog with brown markings, a short snout, a stub tail, and brown eyes. It has a square muzzle, erect ears, and a smooth, short coat. The body proportions are large, with short legs and a wagging tail. This dog has a snub nose, square paws, and a dense fur texture.
+            Three possible dog breed names: Samoyed, Great Pyrenees, Akita
+            Output JSON:
+            {
+                "Samoyed, Great Pyrenees, Akita": [
+                    "The dog in the photo is a large white fluffy dog with brown markings, a short snout, a stub tail, and brown eyes.",
+                    "It has a square muzzle, erect ears, and a smooth, short coat.",
+                    "The body proportions are large, with short legs and a wagging tail.",
+                    "This dog has a snub nose, square paws, and a dense fur texture.",
+                    "Its overall appearance is fluffy and it has distinctive white with brown markings."
+                ]
+            }
+
+Trimed----
+42it [02:54,  4.12s/it]
