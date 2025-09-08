@@ -1,0 +1,180 @@
+Namespace(mode='identify', config_file_env='./configs/env_machine.yml', config_file_expt='./configs/expts/pet37_all.yml', num_per_category='3')
+{'setup': 'ours', 'experiment': 5.0, 'dataset_name': 'pet', 'num_classes': 37, 'num_base': 19, 'num_novel': 18, 'seed': 1, 'batch_size': 32, 'clustering_method': 'multi_clip_voting', 'model_size': 'ViT-B/16', 'model_size_vqa': 'FlanT5-XXL', 'model_type_llm': 'gpt-3.5-turbo', 'image_size': 224, 'verbose': False, 'host': 'chaos', 'num_workers': 16, 'device': 'cuda', 'device_count': '1', 'device_id': '0', 'data_dir': './datasets/pet_37', 'expt_dir': './experiments/pet37', 'expt_dir_describe': './experiments/pet37/describe', 'path_identify_answers': './experiments/pet37/describe/pet_identify_answers', 'path_vqa_questions': './experiments/pet37/describe/pet_vqa_questions', 'path_vqa_answers': './experiments/pet37/describe/pet_attributes_pairs', 'path_llm_prompts': './experiments/pet37/describe/pet_llm_prompts', 'expt_dir_guess': './experiments/pet37/guess', 'path_llm_replies_raw': './experiments/pet37/guess/pet_llm_replies_raw', 'path_llm_replies_jsoned': './experiments/pet37/guess/pet_llm_replies_jsoned', 'path_llm_gussed_names': './experiments/pet37/guess/pet_llm_gussed_names', 'expt_dir_grouping': './experiments/pet37/grouping'}
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:04<00:19,  4.87s/it]Loading checkpoint shards:  40%|████      | 2/5 [00:08<00:11,  3.98s/it]Loading checkpoint shards:  60%|██████    | 3/5 [00:11<00:07,  3.67s/it]Loading checkpoint shards:  80%|████████  | 4/5 [00:14<00:03,  3.54s/it]Loading checkpoint shards: 100%|██████████| 5/5 [00:17<00:00,  3.38s/it]Loading checkpoint shards: 100%|██████████| 5/5 [00:17<00:00,  3.59s/it]
+0it [00:00, ?it/s]1it [00:00,  1.29it/s]2it [00:00,  2.36it/s]3it [00:01,  3.23it/s]4it [00:01,  3.91it/s]5it [00:01,  4.38it/s]6it [00:01,  4.59it/s]7it [00:01,  4.45it/s]8it [00:02,  4.62it/s]9it [00:02,  4.37it/s]10it [00:02,  4.43it/s]11it [00:02,  4.70it/s]12it [00:02,  4.96it/s]13it [00:03,  5.12it/s]14it [00:03,  4.83it/s]15it [00:03,  4.88it/s]16it [00:03,  5.09it/s]17it [00:03,  5.12it/s]18it [00:04,  5.49it/s]19it [00:04,  5.23it/s]20it [00:04,  4.71it/s]21it [00:04,  5.03it/s]22it [00:04,  5.21it/s]23it [00:05,  5.38it/s]24it [00:05,  5.28it/s]25it [00:05,  5.49it/s]26it [00:05,  5.60it/s]27it [00:05,  5.55it/s]28it [00:05,  5.55it/s]29it [00:06,  5.65it/s]30it [00:06,  5.67it/s]31it [00:06,  5.68it/s]32it [00:06,  5.61it/s]33it [00:06,  5.61it/s]34it [00:07,  5.67it/s]35it [00:07,  5.52it/s]36it [00:07,  5.52it/s]37it [00:07,  5.36it/s]38it [00:07,  5.47it/s]39it [00:07,  5.45it/s]40it [00:08,  5.72it/s]41it [00:08,  5.77it/s]42it [00:08,  5.67it/s]43it [00:08,  5.54it/s]44it [00:08,  5.41it/s]45it [00:09,  5.60it/s]46it [00:09,  5.54it/s]47it [00:09,  5.55it/s]48it [00:09,  5.86it/s]49it [00:09,  5.72it/s]50it [00:09,  5.89it/s]51it [00:10,  5.98it/s]52it [00:10,  6.18it/s]53it [00:10,  5.40it/s]54it [00:10,  5.77it/s]55it [00:10,  6.00it/s]56it [00:10,  5.94it/s]57it [00:11,  6.17it/s]58it [00:11,  6.43it/s]59it [00:11,  6.65it/s]60it [00:11,  6.80it/s]61it [00:11,  6.89it/s]62it [00:11,  6.97it/s]63it [00:11,  6.94it/s]64it [00:12,  6.10it/s]65it [00:12,  6.32it/s]66it [00:12,  6.34it/s]67it [00:12,  6.01it/s]68it [00:12,  6.18it/s]69it [00:12,  6.18it/s]70it [00:13,  6.20it/s]71it [00:13,  6.40it/s]72it [00:13,  6.40it/s]73it [00:13,  6.31it/s]74it [00:13,  6.06it/s]75it [00:13,  5.94it/s]76it [00:14,  6.16it/s]77it [00:14,  6.33it/s]78it [00:14,  6.37it/s]79it [00:14,  6.60it/s]80it [00:14,  6.09it/s]81it [00:14,  6.52it/s]82it [00:14,  6.47it/s]83it [00:15,  6.58it/s]84it [00:15,  6.79it/s]85it [00:15,  6.81it/s]86it [00:15,  6.90it/s]87it [00:15,  7.05it/s]88it [00:15,  7.06it/s]89it [00:16,  6.08it/s]90it [00:16,  6.08it/s]91it [00:16,  6.00it/s]92it [00:16,  6.30it/s]93it [00:16,  6.28it/s]94it [00:16,  6.01it/s]95it [00:16,  6.02it/s]96it [00:17,  6.09it/s]97it [00:17,  5.91it/s]98it [00:17,  6.16it/s]99it [00:17,  5.32it/s]100it [00:17,  5.16it/s]101it [00:18,  5.38it/s]102it [00:18,  5.55it/s]103it [00:18,  5.34it/s]104it [00:18,  5.42it/s]105it [00:18,  5.54it/s]106it [00:18,  5.54it/s]107it [00:19,  5.65it/s]108it [00:19,  5.07it/s]109it [00:19,  5.31it/s]110it [00:19,  5.35it/s]111it [00:19,  5.39it/s]111it [00:19,  5.57it/s]
+['dog', 'cat']
+Succ. dumped identified super-class values to ./experiments/pet37/describe/pet_identify_answers_3
+Namespace(mode='howto', config_file_env='./configs/env_machine.yml', config_file_expt='./configs/expts/pet37_all.yml', num_per_category='3')
+{'setup': 'ours', 'experiment': 5.0, 'dataset_name': 'pet', 'num_classes': 37, 'num_base': 19, 'num_novel': 18, 'seed': 1, 'batch_size': 32, 'clustering_method': 'multi_clip_voting', 'model_size': 'ViT-B/16', 'model_size_vqa': 'FlanT5-XXL', 'model_type_llm': 'gpt-3.5-turbo', 'image_size': 224, 'verbose': False, 'host': 'chaos', 'num_workers': 16, 'device': 'cuda', 'device_count': '1', 'device_id': '0', 'data_dir': './datasets/pet_37', 'expt_dir': './experiments/pet37', 'expt_dir_describe': './experiments/pet37/describe', 'path_identify_answers': './experiments/pet37/describe/pet_identify_answers', 'path_vqa_questions': './experiments/pet37/describe/pet_vqa_questions', 'path_vqa_answers': './experiments/pet37/describe/pet_attributes_pairs', 'path_llm_prompts': './experiments/pet37/describe/pet_llm_prompts', 'expt_dir_guess': './experiments/pet37/guess', 'path_llm_replies_raw': './experiments/pet37/guess/pet_llm_replies_raw', 'path_llm_replies_jsoned': './experiments/pet37/guess/pet_llm_replies_jsoned', 'path_llm_gussed_names': './experiments/pet37/guess/pet_llm_gussed_names', 'expt_dir_grouping': './experiments/pet37/grouping'}
+
+Your task is to tell me what are the useful attributes for distinguishing dog breeds in a photo of a dog.
+
+Specifically, you can complete the task by following the instructions below:
+1 - I give you an example delimited by <> about what are the useful attributes for distinguishing bird species in 
+a photo of a bird. You should understand and learn this example carefully.
+2 - List the useful attributes for distinguishing dog breeds in a photo of a dog.
+3 - Output a Python list object that contains the listed useful attributes.
+
+===
+<bird species>
+The useful attributes for distinguishing bird species in a photo of a bird:
+['bill shape', 'wing color', 'upperparts color', 'underparts color', 'breast pattern',
+'back color', 'tail shape', 'upper tail color', 'head pattern', 'breast color',
+'throat color', 'eye color', 'bill length', 'forehead color', 'under tail color',
+'nape color', 'belly color', 'wing shape', 'size', 'shape',
+'back pattern', 'tail pattern', 'belly pattern', 'primary color', 'leg color',
+'bill color', 'crown color', 'wing pattern', 'habitat']
+===
+
+===
+<dog breeds>
+The useful attributes for distinguishing dog breeds in a photo of a dog:
+===
+
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /home/hdl/miniconda3/envs/finer/lib/python3.9/site-packages/tenacity/__init_ │
+│ _.py:382 in __call__                                                         │
+│                                                                              │
+│   379 │   │   │   do = self.iter(retry_state=retry_state)                    │
+│   380 │   │   │   if isinstance(do, DoAttempt):                              │
+│   381 │   │   │   │   try:                                                   │
+│ ❱ 382 │   │   │   │   │   result = fn(*args, **kwargs)                       │
+│   383 │   │   │   │   except BaseException:  # noqa: B902                    │
+│   384 │   │   │   │   │   retry_state.set_exception(sys.exc_info())  # type: │
+│   385 │   │   │   │   else:                                                  │
+│                                                                              │
+│ /home/hdl/project/FineR/FineR_1/agents/llm_bot.py:57 in call_gpts            │
+│                                                                              │
+│    54 │   │   │   max_tokens=max_tokens                                      │
+│    55 │   │   )                                                              │
+│    56 │   else:                                                              │
+│ ❱  57 │   │   response = client.chat.completions.create(                     │
+│    58 │   │   │   model=model,                                               │
+│    59 │   │   │   messages=chatgpt_messages,                                 │
+│    60 │   │   │   temperature=temperature                                    │
+│                                                                              │
+│ /home/hdl/miniconda3/envs/finer/lib/python3.9/site-packages/openai/_utils/_u │
+│ tils.py:287 in wrapper                                                       │
+│                                                                              │
+│   284 │   │   │   │   │   else:                                              │
+│   285 │   │   │   │   │   │   msg = f"Missing required argument: {quote(miss │
+│   286 │   │   │   │   raise TypeError(msg)                                   │
+│ ❱ 287 │   │   │   return func(*args, **kwargs)                               │
+│   288 │   │                                                                  │
+│   289 │   │   return wrapper  # type: ignore                                 │
+│   290                                                                        │
+│                                                                              │
+│ /home/hdl/miniconda3/envs/finer/lib/python3.9/site-packages/openai/resources │
+│ /chat/completions/completions.py:1147 in create                              │
+│                                                                              │
+│   1144 │   │   timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN, │
+│   1145 │   ) -> ChatCompletion | Stream[ChatCompletionChunk]:                │
+│   1146 │   │   validate_response_format(response_format)                     │
+│ ❱ 1147 │   │   return self._post(                                            │
+│   1148 │   │   │   "/chat/completions",                                      │
+│   1149 │   │   │   body=maybe_transform(                                     │
+│   1150 │   │   │   │   {                                                     │
+│                                                                              │
+│ /home/hdl/miniconda3/envs/finer/lib/python3.9/site-packages/openai/_base_cli │
+│ ent.py:1259 in post                                                          │
+│                                                                              │
+│   1256 │   │   opts = FinalRequestOptions.construct(                         │
+│   1257 │   │   │   method="post", url=path, json_data=body, files=to_httpx_f │
+│   1258 │   │   )                                                             │
+│ ❱ 1259 │   │   return cast(ResponseT, self.request(cast_to, opts, stream=str │
+│   1260 │                                                                     │
+│   1261 │   def patch(                                                        │
+│   1262 │   │   self,                                                         │
+│                                                                              │
+│ /home/hdl/miniconda3/envs/finer/lib/python3.9/site-packages/openai/_base_cli │
+│ ent.py:1047 in request                                                       │
+│                                                                              │
+│   1044 │   │   │   │   │   err.response.read()                               │
+│   1045 │   │   │   │                                                         │
+│   1046 │   │   │   │   log.debug("Re-raising status error")                  │
+│ ❱ 1047 │   │   │   │   raise self._make_status_error_from_response(err.respo │
+│   1048 │   │   │                                                             │
+│   1049 │   │   │   break                                                     │
+│   1050                                                                       │
+╰──────────────────────────────────────────────────────────────────────────────╯
+AuthenticationError: Error code: 401 - {'error': {'message': '无效的sk 
+token，请检查token是否正确', 'type': 'error'}}
+
+The above exception was the direct cause of the following exception:
+
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /home/hdl/project/FineR/FineR_1/discovering.py:346 in <module>               │
+│                                                                              │
+│   343 │   │   pattern = r'\[([^\]]*)\]'                                      │
+│   344 │   │   for i, ppt in enumerate(prompt):                               │
+│   345 │   │   │   print(ppt)                                                 │
+│ ❱ 346 │   │   │   vqa_questions = how_to_distinguish(llm_bot, prompt=ppt)    │
+│   347 │   │   │   matches = re.findall(pattern, vqa_questions)               │
+│   348 │   │   │   result = matches[0].strip().replace('\n', '').replace('"', │
+│   349                                                                        │
+│                                                                              │
+│ /home/hdl/project/FineR/FineR_1/discovering.py:79 in how_to_distinguish      │
+│                                                                              │
+│    76                                                                        │
+│    77                                                                        │
+│    78 def how_to_distinguish(bot, prompt):                                   │
+│ ❱  79 │   reply = bot.infer(prompt, temperature=0.1)                         │
+│    80 │   used_tokens = bot.get_used_tokens()                                │
+│    81 │                                                                      │
+│    82 │   print(20*"=")                                                      │
+│                                                                              │
+│ /home/hdl/project/FineR/FineR_1/agents/llm_bot.py:119 in infer               │
+│                                                                              │
+│   116 │   │   return reply, total_prompt, n_tokens                           │
+│   117 │                                                                      │
+│   118 │   def infer(self, prompt, temperature=0.9):                          │
+│ ❱ 119 │   │   reply, _, n_tokens = self.__query(prompt, temperature, max_tok │
+│   120 │   │   self.total_tokens += n_tokens                                  │
+│   121 │   │   return reply.strip()                                           │
+│   122                                                                        │
+│                                                                              │
+│ /home/hdl/project/FineR/FineR_1/agents/llm_bot.py:109 in __query             │
+│                                                                              │
+│   106 │                                                                      │
+│   107 │   def __query(self, prompt, temperature, max_token):                 │
+│   108 │   │   total_prompt = prepare_chatgpt_message(prompt)                 │
+│ ❱ 109 │   │   reply, n_tokens = call_gpts(                                   │
+│   110 │   │   │   client=self.client,                                        │
+│   111 │   │   │   chatgpt_messages=total_prompt,                             │
+│   112 │   │   │   temperature=temperature,                                   │
+│                                                                              │
+│ /home/hdl/miniconda3/envs/finer/lib/python3.9/site-packages/tenacity/__init_ │
+│ _.py:289 in wrapped_f                                                        │
+│                                                                              │
+│   286 │   │                                                                  │
+│   287 │   │   @functools.wraps(f)                                            │
+│   288 │   │   def wrapped_f(*args: t.Any, **kw: t.Any) -> t.Any:             │
+│ ❱ 289 │   │   │   return self(f, *args, **kw)                                │
+│   290 │   │                                                                  │
+│   291 │   │   def retry_with(*args: t.Any, **kwargs: t.Any) -> WrappedFn:    │
+│   292 │   │   │   return self.copy(*args, **kwargs).wraps(f)                 │
+│                                                                              │
+│ /home/hdl/miniconda3/envs/finer/lib/python3.9/site-packages/tenacity/__init_ │
+│ _.py:379 in __call__                                                         │
+│                                                                              │
+│   376 │   │                                                                  │
+│   377 │   │   retry_state = RetryCallState(retry_object=self, fn=fn, args=ar │
+│   378 │   │   while True:                                                    │
+│ ❱ 379 │   │   │   do = self.iter(retry_state=retry_state)                    │
+│   380 │   │   │   if isinstance(do, DoAttempt):                              │
+│   381 │   │   │   │   try:                                                   │
+│   382 │   │   │   │   │   result = fn(*args, **kwargs)                       │
+│                                                                              │
+│ /home/hdl/miniconda3/envs/finer/lib/python3.9/site-packages/tenacity/__init_ │
+│ _.py:326 in iter                                                             │
+│                                                                              │
+│   323 │   │   │   retry_exc = self.retry_error_cls(fut)                      │
+│   324 │   │   │   if self.reraise:                                           │
+│   325 │   │   │   │   raise retry_exc.reraise()                              │
+│ ❱ 326 │   │   │   raise retry_exc from fut.exception()                       │
+│   327 │   │                                                                  │
+│   328 │   │   if self.wait:                                                  │
+│   329 │   │   │   sleep = self.wait(retry_state)                             │
+╰──────────────────────────────────────────────────────────────────────────────╯
+RetryError: RetryError[<Future at 0x7414388663a0 state=finished raised 
+AuthenticationError>]
